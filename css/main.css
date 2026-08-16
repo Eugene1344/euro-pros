@@ -1052,24 +1052,20 @@ button {
   gap: var(--space-sm);
 }
 
-.footer-map {
-  padding-block: var(--space-lg);
+.footer-links__map {
+  margin-top: var(--space-xs);
+  padding-top: var(--space-xs);
   border-top: 1px solid var(--color-border-dark);
-  margin-bottom: var(--space-lg);
 }
 
-.footer-map__link {
+.footer-links__map-label {
   display: block;
-  margin-top: var(--space-2xs);
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--color-white);
-  transition: opacity var(--transition-base);
-}
-
-.footer-map__link:hover {
-  opacity: 0.8;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: 2px;
 }
 
 .footer-bottom {
