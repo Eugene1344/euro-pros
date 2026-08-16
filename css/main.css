@@ -1,0 +1,1086 @@
+/* ==========================================================================
+   Euro Pros Remodeling — Base styles + Home page
+   ========================================================================== */
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  color: var(--color-navy-800);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---- Layout helpers ---- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.section {
+  padding-block: var(--space-2xl);
+}
+
+.section--tight {
+  padding-block: var(--space-xl);
+}
+
+.section--soft {
+  background: var(--color-bg-soft);
+}
+
+.section--navy {
+  background: var(--color-navy-800);
+  color: var(--color-text-on-dark);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.eyebrow--on-dark {
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  padding: 15px 30px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+}
+
+.btn--primary {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  border-color: var(--color-navy-800);
+}
+
+.btn--primary:hover {
+  background: var(--color-navy-700);
+}
+
+.btn--outline-dark {
+  background: transparent;
+  color: var(--color-navy-800);
+  border-color: var(--color-navy-800);
+}
+
+.btn--outline-dark:hover {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn--outline-light:hover {
+  background: var(--color-white);
+  color: var(--color-navy-800);
+  border-color: var(--color-white);
+}
+
+.btn--white {
+  background: var(--color-white);
+  color: var(--color-navy-800);
+  border-color: var(--color-white);
+}
+
+.btn--white:hover {
+  background: var(--color-cream);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-block: var(--space-sm);
+}
+
+.logo {
+  display: block;
+  line-height: 0;
+}
+
+.logo img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.main-nav a {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: color var(--transition-base);
+}
+
+.main-nav a:hover {
+  color: var(--color-navy-800);
+}
+
+.main-nav__phone {
+  display: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.header-phone {
+  font-weight: 600;
+  font-size: var(--fs-small);
+  color: var(--color-navy-800);
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: var(--space-2xs);
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-navy-800);
+  transform-origin: center;
+  transition: transform 250ms ease, opacity 200ms ease;
+}
+
+.nav-toggle.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-on-dark);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(15, 28, 51, 0.94) 0%,
+    rgba(15, 28, 51, 0.88) 30%,
+    rgba(15, 28, 51, 0.5) 58%,
+    rgba(15, 28, 51, 0.08) 85%
+  );
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+  padding-block: var(--space-2xl);
+}
+
+.hero__eyebrow {
+  color: var(--color-text-on-dark-muted);
+}
+
+.hero__title {
+  color: var(--color-white);
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-md);
+}
+
+.hero__subtitle {
+  color: var(--color-text-on-dark-muted);
+  max-width: 42ch;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ==========================================================================
+   Trust bar
+   ========================================================================== */
+
+.trust-bar {
+  background: var(--color-bg-soft);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trust-bar .container {
+  display: flex;
+  padding-block: var(--space-md);
+}
+
+.trust-bar ul {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 0;
+}
+
+.trust-bar li {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: auto;
+  padding-inline: var(--space-sm);
+  border-left: 1px solid var(--color-border);
+}
+
+.trust-bar li:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.trust-bar li:last-child {
+  padding-right: 0;
+}
+
+/* ==========================================================================
+   Services grid ("What We Remodel & Build")
+   ========================================================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
+}
+
+.service-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  min-height: 280px;
+  grid-column: span 3;
+}
+
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(5) {
+  grid-column: span 2;
+  min-height: 240px;
+}
+
+.service-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 28, 51, 0) 40%, rgba(15, 28, 51, 0.75) 100%);
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+.service-card__label {
+  position: absolute;
+  left: var(--space-md);
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+}
+
+/* ==========================================================================
+   Why choose us
+   ========================================================================== */
+
+.why-us {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.why-us__title {
+  margin-bottom: var(--space-lg);
+}
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.why-list li {
+  display: flex;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.why-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.why-list__index {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy-800);
+  min-width: 2ch;
+}
+
+.why-list__text {
+  color: var(--color-text-muted);
+}
+
+.why-us__media img {
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   Value props ("Remodeling Shouldn't Feel Like a Gamble")
+   ========================================================================== */
+
+.value-props {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.value-prop {
+  text-align: center;
+  padding-inline: var(--space-md);
+  position: relative;
+}
+
+.value-prop::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--space-xl) / -2);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.value-prop:first-child::before {
+  display: none;
+}
+
+.value-prop__title {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--color-navy-800);
+  margin-bottom: var(--space-sm);
+}
+
+.value-prop__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* ==========================================================================
+   Projects grid ("Real Projects. Real Results.")
+   ========================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.project-card__media {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.project-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  object-fit: cover;
+}
+
+.project-card__title {
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: var(--color-navy-800);
+}
+
+.project-card__location {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+
+/* ==========================================================================
+   Process: See Your Project Before We Build It
+   ========================================================================== */
+
+.process-preview {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.process-preview__step {
+  text-align: center;
+}
+
+.process-preview__step img {
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.process-preview__label {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.process-preview__arrow {
+  color: var(--color-text-soft);
+  font-size: 1.5rem;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.process-step__index {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-navy-800);
+  margin-bottom: var(--space-xs);
+}
+
+.process-step__title {
+  font-weight: 700;
+  margin-bottom: var(--space-3xs);
+}
+
+.process-step__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* ==========================================================================
+   Built on Real Construction Experience
+   ========================================================================== */
+
+.experience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.experience__title {
+  margin-bottom: var(--space-sm);
+}
+
+.experience__text {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  max-width: 46ch;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 600;
+  color: var(--color-navy-800);
+}
+
+.checklist li svg {
+  flex: none;
+}
+
+.experience__media img {
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   New construction banner
+   ========================================================================== */
+
+.construction-banner .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl);
+}
+
+.construction-banner__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.construction-banner__text {
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.build-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-sm);
+}
+
+.build-steps li {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark);
+}
+
+.build-steps li.is-sep {
+  color: var(--color-text-on-dark-muted);
+}
+
+.construction-banner__media svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Pricing
+   ========================================================================== */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.pricing-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.pricing-card__label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.pricing-card__sub {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-sm);
+}
+
+.pricing-card__value {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  color: var(--color-navy-800);
+}
+
+.pricing-card--dark {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pricing-card--dark .pricing-card__value {
+  color: var(--color-white);
+  font-size: var(--fs-h3);
+}
+
+.pricing-note {
+  text-align: center;
+  color: var(--color-text-soft);
+  font-size: var(--fs-small);
+}
+
+/* ==========================================================================
+   Social proof / service area
+   ========================================================================== */
+
+.social-proof {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  text-align: center;
+}
+
+.review-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.review-block__label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.stars svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-border);
+}
+
+.stars svg.is-filled {
+  fill: var(--color-star);
+}
+
+.service-area__title {
+  margin-bottom: var(--space-sm);
+}
+
+.service-area__list {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.9;
+}
+
+/* ==========================================================================
+   Final CTA
+   ========================================================================== */
+
+.final-cta .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding-block: var(--space-xl);
+}
+
+.final-cta__title {
+  color: var(--color-white);
+}
+
+.final-cta__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-navy-900);
+  color: var(--color-text-on-dark-muted);
+  padding-block: var(--space-2xl) var(--space-lg);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border-dark);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-brand__tagline {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+}
+
+.footer-heading {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  font-size: var(--fs-small);
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+}
+
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  font-size: var(--fs-small);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Nav: switches to burger below 992px */
+@media (max-width: 1125px) {
+  .header-phone {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-lg) var(--container-padding);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+  }
+
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+  }
+
+  .main-nav__phone {
+    display: block;
+    color: var(--color-navy-800);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 480px;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 28, 51, 0.92) 0%,
+      rgba(15, 28, 51, 0.85) 55%,
+      rgba(15, 28, 51, 0.65) 100%
+    );
+  }
+
+  .hero__content {
+    max-width: none;
+  }
+
+  .why-us,
+  .experience,
+  .construction-banner .container,
+  .social-proof {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card,
+  .service-card:nth-child(3),
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .value-props,
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-xl);
+  }
+
+  .value-prop:nth-child(2)::before {
+    display: block;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .process-preview__arrow {
+    transform: rotate(90deg);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-actions {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 720px) {
+  .trust-bar ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm) var(--space-lg);
+  }
+
+  .trust-bar li {
+    font-size: 0.75rem;
+    border-left: none;
+    padding-inline: 0;
+  }
+
+  .trust-bar li:last-child {
+    grid-column: 1 / -1;
+  }
+
+
+  .value-props,
+  .process-steps,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-actions {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content {
+    padding-block: var(--space-xl);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .trust-bar li {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+}
