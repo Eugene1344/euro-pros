@@ -116,6 +116,13 @@ def footer_html():
         </div>
       </div>
 
+      <div class="footer-map">
+        <p class="eyebrow-link" style="color:var(--color-text-on-dark-muted);">Map</p>
+        <a class="footer-map__link" href="https://www.google.com/maps/search/?api=1&amp;query=1753+Fredericksburg+Ln%2C+Aurora%2C+IL+60503" target="_blank" rel="noopener">
+          1753 Fredericksburg Ln, Aurora, IL 60503 &mdash; Euro Pros on Google Maps &rarr;
+        </a>
+      </div>
+
       <div class="footer-bottom">
         <p>&copy; 2026 Euro Pros Remodeling. All rights reserved.</p>
       </div>
@@ -143,17 +150,52 @@ def cta_banner(title, text, button_label="Get an Estimate", button_href="contact
   </section>"""
 
 
-BLUEPRINT_SVG = """<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="rgba(255,255,255,0.55)" stroke-width="1.4" fill="none">
-            <path d="M40 300V150L200 40l160 110v150" />
-            <path d="M40 150h320" />
-            <path d="M75 300V180h60v120" />
-            <path d="M150 300V190h50v40h-50" />
-            <path d="M230 220h50v80h-50z" />
-            <path d="M300 260h40v40h-40z" />
-            <path d="M200 40v110" stroke-dasharray="4 4" />
-            <path d="M120 300V260h30v40" />
-            <path d="M150 230h50" />
+BLUEPRINT_SVG = """<svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(255,255,255,0.55)" stroke-width="1.3" fill="none" stroke-linejoin="round">
+            <!-- roof -->
+            <path d="M70 150L245 55l175 95" />
+            <path d="M245 55v-18" stroke-dasharray="3 4" />
+            <path d="M95 150h300" />
+            <!-- chimney -->
+            <path d="M300 70v45h-26V95" />
+            <!-- main walls -->
+            <path d="M95 150v170h300V150" />
+            <!-- garage / lean-to wing -->
+            <path d="M395 210l55-28v138h-55" />
+            <path d="M450 182v-10" stroke-dasharray="3 4" />
+            <!-- upper windows -->
+            <path d="M130 180h50v40h-50z" />
+            <path d="M155 180v40M130 200h50" />
+            <path d="M300 180h50v40h-50z" />
+            <path d="M325 180v40M300 200h50" />
+            <!-- door -->
+            <path d="M212 245h56v75h-56z" />
+            <path d="M240 245v75" />
+            <circle cx="256" cy="285" r="1.6" fill="rgba(255,255,255,0.55)" stroke="none" />
+            <!-- lower side window -->
+            <path d="M130 260h50v40h-50z" />
+            <path d="M155 260v40M130 280h50" />
+            <!-- garage door -->
+            <path d="M410 250h70v70h-70z" />
+            <path d="M410 265h70M410 280h70M410 295h70" />
+            <!-- foundation hatch -->
+            <path d="M70 320h410M78 320l10 14M108 320l10 14M138 320l10 14M168 320l10 14M198 320l10 14M228 320l10 14M258 320l10 14M288 320l10 14M318 320l10 14M348 320l10 14M378 320l10 14M408 320l10 14M438 320l10 14" stroke-width="1" />
+            <!-- width dimension -->
+            <path d="M70 30h380" stroke-width="1" />
+            <path d="M70 24v12M450 24v12" stroke-width="1" />
+            <path d="M70 30l10-4v8zM450 30l-10-4v8z" fill="rgba(255,255,255,0.55)" stroke="none" />
+            <text x="260" y="22" fill="rgba(255,255,255,0.6)" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">42'-0&quot;</text>
+            <!-- height dimension -->
+            <path d="M30 55v265" stroke-width="1" />
+            <path d="M24 55h12M24 320h12" stroke-width="1" />
+            <path d="M30 55l-4 10h8zM30 320l-4-10h8z" fill="rgba(255,255,255,0.55)" stroke="none" />
+            <text x="20" y="190" fill="rgba(255,255,255,0.6)" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" transform="rotate(-90 20 190)">24'-0&quot;</text>
+            <!-- north arrow -->
+            <g transform="translate(440,40)">
+              <circle cx="0" cy="0" r="18" stroke-width="1" />
+              <path d="M0 -12L5 6H-5z" fill="rgba(255,255,255,0.55)" stroke="none" />
+              <text x="0" y="-22" fill="rgba(255,255,255,0.6)" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">N</text>
+            </g>
           </g>
         </svg>"""
 

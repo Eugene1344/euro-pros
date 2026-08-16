@@ -91,6 +91,19 @@
   });
 })();
 
+/* Team block: scroll the service tag strip with the prev/next arrows */
+(function () {
+  var track = document.querySelector(".team-block__tags-track");
+  if (!track) return;
+
+  document.querySelectorAll(".team-block__arrow").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var dir = Number(btn.getAttribute("data-scroll")) || 1;
+      track.scrollBy({ left: dir * 220, behavior: "smooth" });
+    });
+  });
+})();
+
 /* Contact form: static demo submit (no backend) */
 (function () {
   var form = document.querySelector(".project-form");

@@ -37,7 +37,8 @@
 
 /* ---- Hero size + heading modifiers (reuses .hero from main.css) ---- */
 .hero--sm {
-  min-height: 420px;
+  min-height: 75dvh;
+  min-height: 75vh;
 }
 
 .hero__title--h2 {
@@ -63,7 +64,8 @@
 .split-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 380px;
+  min-height: 75dvh;
+  min-height: 75vh;
 }
 
 .split-hero__content {
