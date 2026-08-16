@@ -33,6 +33,7 @@ NAV_ITEMS = [
     ("work", "our-work.html", "Our Work"),
     ("process", "our-process.html", "Our Process"),
     ("about", "about-us.html", "About Us"),
+    ("blog", "blog.html", "Blog"),
     ("contact", "contact.html", "Contact"),
 ]
 
@@ -59,6 +60,7 @@ def header_html(active=""):
 
       <div class="header-actions">
         <a class="header-phone" href="tel:+18478881919">(847) 888-1919</a>
+        <a class="header-call" href="tel:+18478881919" aria-label="Call Euro Pros">{icon('phone')}</a>
         <a class="btn btn--primary" href="contact.html">Get an Estimate</a>
       </div>
 
@@ -141,7 +143,7 @@ def cta_banner(title, text, button_label="Get an Estimate", button_href="contact
         </div>
       </div>
       <div class="cta-banner__media" aria-hidden="true">
-        {BLUEPRINT_SVG}
+        <img src="images/blueprint-house.png" alt="" />
       </div>
     </div>
   </section>"""
@@ -227,10 +229,26 @@ def page(title, description, active, body, extra_head="", favicon_emoji=None):
 
 {footer_html()}
 
+{EXIT_POPUP_HTML}
+
   <script src="js/main.js"></script>
 </body>
 </html>
 """
+
+
+EXIT_POPUP_HTML = """  <div class="exit-popup-overlay" id="exitPopupOverlay">
+    <div class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle">
+      <button class="exit-popup__close" type="button" aria-label="Close">&times;</button>
+      <p class="exit-popup__eyebrow">&mdash; Before You Go &mdash;</p>
+      <h3 class="exit-popup__title" id="exitPopupTitle">Leave with a number,<br />not a guess.</h3>
+      <p class="exit-popup__text">The consultation is free, and the estimate you receive is detailed and in writing &mdash; most homeowners have it within 48 hours.</p>
+      <div class="exit-popup__actions">
+        <a class="btn btn--primary" href="contact.html">Request My Free Estimate &rarr;</a>
+        <a class="exit-popup__call" href="tel:+18478881919">or call (847) 888-1919</a>
+      </div>
+    </div>
+  </div>"""
 
 
 def icon(name, cls=""):

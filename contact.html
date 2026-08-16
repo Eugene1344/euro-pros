@@ -28,12 +28,14 @@
         <a href="our-work.html">Our Work</a>
         <a href="our-process.html">Our Process</a>
         <a href="about-us.html">About Us</a>
+        <a href="blog.html">Blog</a>
         <a href="contact.html" class="is-active">Contact</a>
         <a class="main-nav__phone" href="tel:+18478881919">(847) 888-1919</a>
       </nav>
 
       <div class="header-actions">
         <a class="header-phone" href="tel:+18478881919">(847) 888-1919</a>
+        <a class="header-call" href="tel:+18478881919" aria-label="Call Euro Pros"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2.2 2A17 17 0 015 5.2 2 2 0 016 3z"/></svg></a>
         <a class="btn btn--primary" href="contact.html">Get an Estimate</a>
       </div>
 
@@ -45,13 +47,14 @@
 
   <main>
 
-  <section class="split-hero">
-    <div class="split-hero__content">
-      <h1 class="split-hero__title">Tell Us About Your Project</h1>
-      <p class="split-hero__text">Tell us what you're planning and we'll help determine the next step.</p>
-    </div>
-    <div class="split-hero__media">
-      <img src="images/hero.jpg" alt="Bathroom vanity" />
+  <section class="hero hero--sm">
+    <div class="hero__media"><img src="images/hero.jpg" alt="Bathroom vanity" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title hero__title--h2">Tell Us About Your Project</h1>
+        <p class="hero__subtitle">Tell us what you're planning and we'll help determine the next step.</p>
+      </div>
     </div>
   </section>
 
@@ -309,6 +312,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="exit-popup-overlay" id="exitPopupOverlay">
+    <div class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle">
+      <button class="exit-popup__close" type="button" aria-label="Close">&times;</button>
+      <p class="exit-popup__eyebrow">&mdash; Before You Go &mdash;</p>
+      <h3 class="exit-popup__title" id="exitPopupTitle">Leave with a number,<br />not a guess.</h3>
+      <p class="exit-popup__text">The consultation is free, and the estimate you receive is detailed and in writing &mdash; most homeowners have it within 48 hours.</p>
+      <div class="exit-popup__actions">
+        <a class="btn btn--primary" href="contact.html">Request My Free Estimate &rarr;</a>
+        <a class="exit-popup__call" href="tel:+18478881919">or call (847) 888-1919</a>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

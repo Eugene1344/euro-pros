@@ -68,10 +68,45 @@ services_body = f"""  <section class="hero hero--sm">
     </div>
   </section>
 
-  <section class="section section--navy">
+  <section class="section section--soft">
     <div class="container">
       <div class="section-head">
-        <h2 style="color:#fff;">Why Work With Euro Pros?</h2>
+        <h2>What to Expect When You Work With Euro Pros</h2>
+      </div>
+    </div>
+    <div class="process-steps process-steps--5 process-steps--full">
+      <div class="process-step">
+        <p class="process-step__index">01</p>
+        <p class="process-step__title">Consultation</p>
+        <p class="process-step__text">On-site consultation to understand your goals and scope.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">02</p>
+        <p class="process-step__title">Detailed Estimate</p>
+        <p class="process-step__text">Clear written estimate based on the agreed scope of work.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">03</p>
+        <p class="process-step__title">Project Planning</p>
+        <p class="process-step__text">Scheduling, materials, permits and project coordination.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">04</p>
+        <p class="process-step__title">Construction &amp; Communication</p>
+        <p class="process-step__text">Project management and regular communication throughout the construction.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">05</p>
+        <p class="process-step__title">Final Walkthrough</p>
+        <p class="process-step__text">Review of the completed project with the client.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section-head section-head--light">
+        <h2>Why Work With Euro Pros?</h2>
       </div>
       <div class="icon-list icon-list--light icon-list--5 icon-list--center">
         <div class="icon-list__item">
@@ -115,15 +150,73 @@ services_body = f"""  <section class="hero hero--sm">
 
   <section class="section">
     <div class="container">
-      <div class="why-us">
-        <div class="why-us__media">
-          <img src="images/experience-kitchen.svg" alt="Finished kitchen remodel" loading="lazy" />
+      <div class="section-head">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>How much does a remodeling project cost?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Costs vary by project type and scope. As a starting point: Bathroom Remodeling starts at $12,000+, Basement Remodeling at $25,000+, Kitchen Remodeling at $35,000+, and Whole-Home Remodeling at $75,000+. We'll provide a detailed, written estimate once we understand your specific project.</p></div>
         </div>
-        <div class="why-us__content">
-          <h2 class="why-us__title">Have a Project in Mind?</h2>
-          <p style="color:var(--color-text-muted);margin-bottom:var(--space-lg);max-width:42ch;">Let's talk about your ideas and how we can bring them to life.</p>
-          <a class="btn btn--primary" href="contact.html">Get an Estimate</a>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>How long does a remodeling project take?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Timelines depend on scope &mdash; a bathroom remodel typically takes 3&ndash;6 weeks, a kitchen 6&ndash;12 weeks, and whole-home or new construction projects several months. We'll walk through a realistic schedule during your consultation.</p></div>
         </div>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>Do you provide materials?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Yes. We can source and supply all materials, or work with materials you've already selected &mdash; whichever fits your project best.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>Do you handle plumbing and electrical work?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Yes, our team manages plumbing and electrical work as part of your project, coordinated under one contract and one schedule.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>Do I need permits?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Many remodeling projects require permits, especially when plumbing, electrical, or structural changes are involved. We handle the permitting process for you as part of our project management.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>What areas do you serve?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>We proudly serve the Chicago suburbs, including Naperville, Arlington Heights, Glenview, Wheaton, Downers Grove, Elmhurst, Aurora, Hinsdale, Oak Brook, St. Charles, and surrounding communities.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" type="button">
+            <span>Do you offer a warranty?</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer"><p>Yes. Every project is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-full">
+    <div class="experience-full__media">
+      <img src="images/experience-kitchen.svg" alt="Finished kitchen remodel" loading="lazy" />
+      <div class="experience-full__overlay"></div>
+    </div>
+    <div class="container">
+      <div class="experience-full__content">
+        <h2 class="experience-full__title">Have a Project in Mind?</h2>
+        <p class="experience-full__text">Let's talk about your ideas and how we can bring them to life.</p>
+        <a class="btn btn--white" href="contact.html">Get an Estimate</a>
       </div>
     </div>
   </section>
@@ -176,7 +269,8 @@ PROCESS_STEPS = [
 
 
 def service_page(slug, name, tagline, hero_img, intro_title, intro_text, detail_img,
-                  what_we_do, price, price_note, project_imgs, faqs, meta_desc):
+                  what_we_do, price, price_note, project_imgs, faqs, meta_desc,
+                  timeline, scope_summary):
     why_choose_html = "\n".join(
         f"""        <div class="feature-grid__item">
           {icon(i, 'feature-grid__icon')}
@@ -197,8 +291,11 @@ def service_page(slug, name, tagline, hero_img, intro_title, intro_text, detail_
         what_we_do_item(i, t, d) for i, t, d in what_we_do
     )
 
-    projects_html = "\n".join(
-        f'        <img src="images/{img}.svg" alt="{alt}" loading="lazy" />' for img, alt in project_imgs
+    portfolio_html = "\n".join(
+        f"""      <a href="our-work.html" class="portfolio-strip__item">
+        <img src="images/{img}.svg" alt="{caption}" loading="lazy" />
+        <span class="portfolio-strip__caption">{caption}</span>
+      </a>""" for img, caption in project_imgs
     )
 
     faq_html = "\n".join(faq_item(q, a) for q, a in faqs)
@@ -217,21 +314,6 @@ def service_page(slug, name, tagline, hero_img, intro_title, intro_text, detail_
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="why-us">
-        <div class="why-us__content">
-          <h2 class="why-us__title">{intro_title}</h2>
-          <p style="color:var(--color-text-muted);margin-top:var(--space-md);max-width:52ch;">{intro_text}</p>
-          <p style="color:var(--color-text-muted);margin-top:var(--space-md);max-width:52ch;">As a licensed General Contractor, we handle every detail from start to finish with clear communication and dependable execution.</p>
-        </div>
-        <div class="why-us__media">
-          <img src="images/{detail_img}.svg" alt="{name} detail photo" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section section--soft">
     <div class="container">
       <div class="section-head">
@@ -243,12 +325,26 @@ def service_page(slug, name, tagline, hero_img, intro_title, intro_text, detail_
     </div>
   </section>
 
-  <section class="section">
+  <section class="experience-full">
+    <div class="experience-full__media">
+      <img src="images/{detail_img}.svg" alt="{name} detail photo" loading="lazy" />
+      <div class="experience-full__overlay"></div>
+    </div>
     <div class="container">
-      <div class="section-head">
+      <div class="experience-full__content">
+        <h2 class="experience-full__title">{intro_title}</h2>
+        <p class="experience-full__text">{intro_text}</p>
+        <p class="experience-full__text">As a licensed General Contractor, we handle every detail from start to finish with clear communication and dependable execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section-head section-head--light">
         <h2>Why Choose Euro Pros</h2>
       </div>
-      <div class="feature-grid feature-grid--5">
+      <div class="feature-grid feature-grid--5 feature-grid--light">
 {why_choose_html}
       </div>
     </div>
@@ -265,34 +361,57 @@ def service_page(slug, name, tagline, hero_img, intro_title, intro_text, detail_
     </div>
   </section>
 
-  <section class="section">
+  <section class="portfolio-strip">
     <div class="container">
-      <div class="section-head">
-        <h2>Real {name.split(' ')[0]} Projects</h2>
+      <div class="portfolio-strip__head">
+        <div>
+          <p class="eyebrow-link" style="color:var(--color-text-on-dark-muted);">Portfolio</p>
+          <h2 class="portfolio-strip__title">Real {name.split(' ')[0]} Projects</h2>
+        </div>
+        <p class="portfolio-strip__lead">See how homeowners like you transformed their space with Euro Pros.</p>
       </div>
-      <div class="gallery-grid" style="margin-bottom:var(--space-md);">
-{projects_html}
+    </div>
+    <div class="portfolio-strip__grid">
+{portfolio_html}
+    </div>
+    <div class="container">
+      <div class="portfolio-strip__footer">
+        <a href="our-work.html" class="btn btn--outline-light">View All Projects</a>
+        <span class="portfolio-strip__tagline">Every project &mdash; real craftsmanship.</span>
       </div>
-      <p style="text-align:center;">
-        <a href="our-work.html" class="service-tile__link">View All Projects &rarr;</a>
-      </p>
     </div>
   </section>
 
-  <section class="section section--soft">
+  <section class="section">
     <div class="container">
       <div class="pricing-strip">
-        {icon('house', 'pricing-strip__icon')}
-        <div>
-          <p class="pricing-strip__label">{name} &mdash; Starting at</p>
-          <p class="pricing-strip__value">{price}</p>
-          <p class="pricing-strip__note">{price_note}</p>
+        <div class="pricing-strip__main">
+          {icon('house', 'pricing-strip__icon')}
+          <div>
+            <p class="pricing-strip__label">{name} &mdash; Starting at</p>
+            <p class="pricing-strip__value">{price}</p>
+            <p class="pricing-strip__note">{price_note}</p>
+          </div>
+        </div>
+        <div class="pricing-strip__details">
+          <div class="pricing-strip__detail">
+            <p class="pricing-strip__detail-label">Typical Timeline</p>
+            <p class="pricing-strip__detail-value">{timeline}</p>
+          </div>
+          <div class="pricing-strip__detail">
+            <p class="pricing-strip__detail-label">Warranty</p>
+            <p class="pricing-strip__detail-value">2-Year Workmanship Warranty</p>
+          </div>
+          <div class="pricing-strip__detail">
+            <p class="pricing-strip__detail-label">What We Handle</p>
+            <p class="pricing-strip__detail-value">{scope_summary}</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--soft">
     <div class="container">
       <div class="section-head">
         <h2>Frequently Asked Questions</h2>
@@ -338,9 +457,9 @@ service_page(
     price="$12,000+",
     price_note="Starting prices vary depending on project size, existing conditions, materials and scope of work.",
     project_imgs=[
-        ("naperville-gallery-2", "Double vanity bathroom remodel"),
-        ("naperville-gallery-3", "Freestanding tub bathroom remodel"),
-        ("naperville-gallery-1", "Walk-in shower bathroom remodel"),
+        ("naperville-gallery-2", "Double Vanity &mdash; Naperville, IL"),
+        ("naperville-gallery-3", "Freestanding Tub &mdash; Naperville, IL"),
+        ("naperville-gallery-1", "Walk-In Shower &mdash; Naperville, IL"),
     ],
     faqs=[
         ("How long does a bathroom remodel take?", "A typical full bathroom remodel takes 3&ndash;6 weeks depending on the scope of work, material availability, and whether plumbing or layout changes are involved."),
@@ -348,8 +467,12 @@ service_page(
         ("Do I need to move out during the remodel?", "Most homeowners stay in their home during a bathroom remodel, especially if you have a second bathroom. We'll walk you through what to expect for your specific project."),
         ("How do I get started?", "Request an estimate, and we'll schedule a consultation to discuss your goals, walk your space, and provide a detailed plan and pricing."),
         ("Are you licensed and insured?", "Yes. Euro Pros is a licensed General Contractor and fully insured for your protection."),
+        ("Do you offer a warranty?", "Yes. Every bathroom remodel is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion."),
+        ("Do I need a permit for a bathroom remodel?", "Permits are typically required when plumbing, electrical, or layout changes are involved. We handle the permitting process for you as part of our project management."),
     ],
     meta_desc="Bathroom remodeling in the Chicago suburbs. Licensed General Contractor, starting at $12,000+. Get a free estimate from Euro Pros.",
+    timeline="3&ndash;6 Weeks",
+    scope_summary="Design, permits, demolition, plumbing &amp; electrical, tile and finishes &mdash; all under one contract.",
 )
 
 service_page(
@@ -376,9 +499,9 @@ service_page(
     price="$25,000+",
     price_note="Starting prices vary depending on project size, existing conditions, materials and scope of work.",
     project_imgs=[
-        ("project-basement-retreat", "Finished basement family room"),
-        ("project-basement-entertainment", "Basement entertainment space"),
-        ("work-basement", "Basement remodel"),
+        ("project-basement-retreat", "Family Room &mdash; Wheaton, IL"),
+        ("project-basement-entertainment", "Entertainment Space &mdash; Glenview, IL"),
+        ("work-basement", "Basement Remodel &mdash; Chicago Suburbs"),
     ],
     faqs=[
         ("How long does a basement remodel take?", "Most basement remodels take 6&ndash;10 weeks depending on size, layout complexity, and whether a bathroom is included."),
@@ -386,8 +509,12 @@ service_page(
         ("Can you add a bathroom or wet bar?", "Yes &mdash; plumbing rough-in for a bathroom or wet bar is one of the most popular basement upgrades we install."),
         ("What about moisture or past water issues?", "We assess drainage and moisture conditions before finishing and recommend waterproofing steps so your new space stays dry."),
         ("How do I get started?", "Request an estimate and we'll schedule a walkthrough to discuss layout options, budget, and timeline."),
+        ("Are you licensed and insured?", "Yes. Euro Pros is a licensed General Contractor and fully insured for your protection."),
+        ("Do you offer a warranty?", "Yes. Every basement remodel is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion."),
     ],
     meta_desc="Basement remodeling in the Chicago suburbs. Licensed General Contractor, starting at $25,000+. Get a free estimate from Euro Pros.",
+    timeline="6&ndash;10 Weeks",
+    scope_summary="Framing, waterproofing, electrical, plumbing rough-in, drywall, flooring and finishes &mdash; all under one contract.",
 )
 
 service_page(
@@ -412,9 +539,9 @@ service_page(
     price="$35,000+",
     price_note="Starting prices vary depending on project size, existing conditions, materials and scope of work.",
     project_imgs=[
-        ("work-kitchen", "Kitchen remodel with island"),
-        ("project-transitional-kitchen", "Transitional kitchen remodel"),
-        ("project-timeless-kitchen", "Timeless kitchen remodel"),
+        ("work-kitchen", "Kitchen Island &mdash; Chicago Suburbs"),
+        ("project-transitional-kitchen", "Transitional Kitchen &mdash; Elmhurst, IL"),
+        ("project-timeless-kitchen", "Timeless Kitchen &mdash; Westmont, IL"),
     ],
     faqs=[
         ("How long does a kitchen remodel take?", "Most kitchen remodels take 6&ndash;12 weeks depending on scope, whether the layout is changing, and material lead times."),
@@ -422,8 +549,12 @@ service_page(
         ("What's included in your kitchen remodeling service?", "Design, cabinetry, countertops, plumbing and electrical, flooring, and finishes &mdash; all managed under one contract."),
         ("Do you help choose materials and finishes?", "Yes, our team can guide you through cabinet, countertop, and finish selections that fit your style and budget."),
         ("How do I get started?", "Request an estimate and we'll schedule a consultation to talk through your goals and provide a detailed plan."),
+        ("Are you licensed and insured?", "Yes. Euro Pros is a licensed General Contractor and fully insured for your protection."),
+        ("Do you offer a warranty?", "Yes. Every kitchen remodel is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion."),
     ],
     meta_desc="Kitchen remodeling in the Chicago suburbs. Licensed General Contractor, starting at $35,000+. Get a free estimate from Euro Pros.",
+    timeline="6&ndash;12 Weeks",
+    scope_summary="Design, cabinetry, countertops, plumbing &amp; electrical, flooring and finishes &mdash; all under one contract.",
 )
 
 service_page(
@@ -448,9 +579,9 @@ service_page(
     price="$75,000+",
     price_note="Starting prices vary depending on project size, existing conditions, materials and scope of work.",
     project_imgs=[
-        ("work-whole-home", "Whole-home remodel living room"),
-        ("project-downers", "Downers Grove whole-home remodel"),
-        ("downers-gallery-1", "Open-concept living space"),
+        ("work-whole-home", "Living Room &mdash; Chicago Suburbs"),
+        ("project-downers", "Whole-Home Remodel &mdash; Downers Grove, IL"),
+        ("downers-gallery-1", "Open-Concept Living &mdash; Downers Grove, IL"),
     ],
     faqs=[
         ("How long does a whole-home remodel take?", "Whole-home projects typically take 4&ndash;9 months depending on square footage, scope, and whether structural changes are involved."),
@@ -458,8 +589,12 @@ service_page(
         ("Do you handle additions and structural changes?", "Yes, we manage structural changes, additions, and permitting as part of whole-home projects."),
         ("Can I stay in my home during the remodel?", "It depends on the scope. We'll walk you through what to expect and can phase work to minimize disruption where possible."),
         ("How do I get started?", "Request an estimate and we'll schedule a consultation to understand your goals across the whole home."),
+        ("Are you licensed and insured?", "Yes. Euro Pros is a licensed General Contractor and fully insured for your protection."),
+        ("Do you offer a warranty?", "Yes. Every whole-home project is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion."),
     ],
     meta_desc="Whole-home remodeling in the Chicago suburbs. Licensed General Contractor, starting at $75,000+. Get a free estimate from Euro Pros.",
+    timeline="4&ndash;9 Months",
+    scope_summary="Design, structural changes, and every trade and finish across your home &mdash; coordinated under one contractor.",
 )
 
 
@@ -685,13 +820,14 @@ pagination_html = """      <div class="pagination">
         <a class="btn btn--outline-dark" href="#">Load More</a>
       </p>"""
 
-our_work_body = f"""  <section class="split-hero">
-    <div class="split-hero__content">
-      <h1 class="split-hero__title">Our Work</h1>
-      <p class="split-hero__text">Real projects. Real results.</p>
-    </div>
-    <div class="split-hero__media">
-      <img src="images/our-work-hero-photo.svg" alt="Euro Pros finished kitchen remodel" />
+our_work_body = f"""  <section class="hero hero--sm">
+    <div class="hero__media"><img src="images/our-work-hero-photo.svg" alt="Euro Pros finished kitchen remodel" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title hero__title--h2">Our Work</h1>
+        <p class="hero__subtitle">Real projects. Real results.</p>
+      </div>
     </div>
   </section>
 
@@ -1168,13 +1304,14 @@ approach_html = "\n".join(f"""        <div class="feature-grid__item" style="tex
           <p class="feature-grid__text">{d}</p>
         </div>""" for t, d in OUR_APPROACH)
 
-about_body = f"""  <section class="split-hero">
-    <div class="split-hero__content">
-      <h1 class="split-hero__title">Built on Real Construction Experience</h1>
-      <p class="split-hero__text">Euro Pros brings hands-on construction experience and professional project management to homeowners throughout the Chicago suburbs.</p>
-    </div>
-    <div class="split-hero__media">
-      <img src="images/about-hero.svg" alt="Euro Pros team member on a construction site" />
+about_body = f"""  <section class="hero hero--sm">
+    <div class="hero__media"><img src="images/about-hero.svg" alt="Euro Pros team member on a construction site" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title hero__title--h2">Built on Real Construction Experience</h1>
+        <p class="hero__subtitle">Euro Pros brings hands-on construction experience and professional project management to homeowners throughout the Chicago suburbs.</p>
+      </div>
     </div>
   </section>
 
@@ -1221,6 +1358,42 @@ about_body = f"""  <section class="split-hero">
       </div>
       <div class="feature-grid feature-grid--5">
 {approach_html}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>Meet Our Team</h2>
+        <div class="section-divider">
+          <span class="section-divider__line"></span>
+          {icon('house', 'section-divider__icon')}
+          <span class="section-divider__line"></span>
+        </div>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/team-gleb.jpg" alt="Gleb Starostin" loading="lazy" />
+          <div class="team-card__info">
+            <p class="team-card__name">Gleb Starostin</p>
+            <p class="team-card__role">Owner</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="images/team-alec.jpg" alt="Alec Starastsin" loading="lazy" />
+          <div class="team-card__info">
+            <p class="team-card__name">Alec Starastsin</p>
+            <p class="team-card__role">Owner</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="images/team-kiryl.jpg" alt="Kiryl Starastsin" loading="lazy" />
+          <div class="team-card__info">
+            <p class="team-card__name">Kiryl Starastsin</p>
+            <p class="team-card__role">Owner</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1295,13 +1468,14 @@ blog_grid_html = "\n".join(f"""        <a href="{a['slug']}.html" class="blog-ca
           </div>
         </a>""" for a in grid_articles)
 
-blog_body = f"""  <section class="split-hero split-hero--light">
-    <div class="split-hero__content">
-      <h1 class="split-hero__title">Home Remodeling &amp; Construction Insights</h1>
-      <p class="split-hero__text">Helpful information from Euro Pros for homeowners planning their next project.</p>
-    </div>
-    <div class="split-hero__media">
-      <img src="images/blog-hero.svg" alt="Bathroom remodel" />
+blog_body = f"""  <section class="hero hero--sm">
+    <div class="hero__media"><img src="images/blog-hero.svg" alt="Bathroom remodel" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title hero__title--h2">Home Remodeling &amp; Construction Insights</h1>
+        <p class="hero__subtitle">Helpful information from Euro Pros for homeowners planning their next project.</p>
+      </div>
     </div>
   </section>
 
@@ -1345,7 +1519,7 @@ blog_body = f"""  <section class="split-hero split-hero--light">
 write("blog.html", page(
     title="Home Remodeling &amp; Construction Blog | Euro Pros",
     description="Helpful guides on bathroom, basement, kitchen, and whole-home remodeling plus new home construction from Euro Pros, a licensed Chicago-suburbs General Contractor.",
-    active="",
+    active="blog",
     body=blog_body,
 ))
 
@@ -1490,7 +1664,7 @@ article_body = f"""  <section class="hero hero--sm">
 write(f"{bathroom_article['slug']}.html", page(
     title=f"{bathroom_article['title']} | Euro Pros Blog",
     description=bathroom_article["excerpt"],
-    active="",
+    active="blog",
     body=article_body,
 ))
 
@@ -1584,7 +1758,7 @@ def article_page_simple(a):
     write(f"{a['slug']}.html", page(
         title=f"{a['title']} | Euro Pros Blog",
         description=a["excerpt"],
-        active="",
+        active="blog",
         body=body,
     ))
 
@@ -1627,13 +1801,14 @@ project_type_options = "\n".join(f'                <option>{t}</option>' for t i
 BUDGET_RANGES = ["Under $25,000", "$25,000 &ndash; $50,000", "$50,000 &ndash; $100,000", "$100,000 &ndash; $250,000", "$250,000+"]
 budget_options = "\n".join(f'                <option>{b}</option>' for b in BUDGET_RANGES)
 
-contact_body = f"""  <section class="split-hero">
-    <div class="split-hero__content">
-      <h1 class="split-hero__title">Tell Us About Your Project</h1>
-      <p class="split-hero__text">Tell us what you're planning and we'll help determine the next step.</p>
-    </div>
-    <div class="split-hero__media">
-      <img src="images/contact-hero.svg" alt="Bathroom vanity" />
+contact_body = f"""  <section class="hero hero--sm">
+    <div class="hero__media"><img src="images/contact-hero.svg" alt="Bathroom vanity" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title hero__title--h2">Tell Us About Your Project</h1>
+        <p class="hero__subtitle">Tell us what you're planning and we'll help determine the next step.</p>
+      </div>
     </div>
   </section>
 

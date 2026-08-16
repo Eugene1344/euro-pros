@@ -104,6 +104,120 @@
   });
 })();
 
+/* Team cards: fade/rise into view, staggered */
+(function () {
+  var cards = document.querySelectorAll(".team-card");
+  if (!cards.length || !("IntersectionObserver" in window)) {
+    cards.forEach(function (c) { c.classList.add("is-visible"); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var index = Array.prototype.indexOf.call(cards, entry.target);
+        setTimeout(function () {
+          entry.target.classList.add("is-visible");
+        }, index * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(function (c) {
+    observer.observe(c);
+  });
+})();
+
+/* Animated count-up numbers (trust bar) */
+(function () {
+  var nums = document.querySelectorAll("[data-count-to]");
+  if (!nums.length || !("IntersectionObserver" in window)) return;
+
+  function animate(el) {
+    var target = parseFloat(el.getAttribute("data-count-to"));
+    var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    var duration = 1200;
+    var start = Date.now();
+
+    // Time-based (not requestAnimationFrame-based) so it still completes
+    // correctly even if the tab is backgrounded/throttled mid-animation.
+    var timer = setInterval(function () {
+      var progress = Math.min((Date.now() - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var val = target * eased;
+      el.textContent = decimals ? val.toFixed(decimals) : Math.round(val);
+      if (progress >= 1) {
+        clearInterval(timer);
+        el.textContent = decimals ? target.toFixed(decimals) : target;
+      }
+    }, 30);
+  }
+
+  var seen = new WeakSet();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !seen.has(entry.target)) {
+        seen.add(entry.target);
+        animate(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach(function (n) {
+    observer.observe(n);
+  });
+})();
+
+/* Exit-intent popup */
+(function () {
+  var overlay = document.getElementById("exitPopupOverlay");
+  if (!overlay) return;
+
+  var STORAGE_KEY = "epExitPopupShown";
+  if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+  var shown = false;
+  var loadedAt = Date.now();
+  var minTimeMs = 6000;
+  var maxScroll = 0;
+
+  function show() {
+    if (shown || Date.now() - loadedAt < minTimeMs) return;
+    shown = true;
+    try { sessionStorage.setItem(STORAGE_KEY, "1"); } catch (e) {}
+    overlay.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function hide() {
+    overlay.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  overlay.querySelector(".exit-popup__close").addEventListener("click", hide);
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) hide();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") hide();
+  });
+
+  // Desktop: cursor exits through the top of the viewport
+  document.addEventListener("mouseout", function (e) {
+    if (!e.relatedTarget && e.clientY <= 0) show();
+  });
+
+  // Any device: scrolled down significantly, then jumped back near the top
+  window.addEventListener("scroll", function () {
+    maxScroll = Math.max(maxScroll, window.scrollY);
+    if (maxScroll > 700 && window.scrollY < 100) show();
+  }, { passive: true });
+
+  // Fallback so engaged visitors still see it once
+  setTimeout(show, 45000);
+})();
+
 /* Contact form: static demo submit (no backend) */
 (function () {
   var form = document.querySelector(".project-form");
