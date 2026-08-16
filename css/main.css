@@ -1429,3 +1429,68 @@ h2 {
     letter-spacing: 0.02em;
   }
 }
+
+/* ==========================================================================
+   Scroll-reveal animation (generic, applied via JS across the site)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 550ms ease, transform 550ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Card hover polish
+   ========================================================================== */
+
+.project-card,
+.blog-card,
+.blog-featured,
+.pricing-card,
+.portfolio-strip__item {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.project-card:hover,
+.blog-card:hover,
+.blog-featured:hover,
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-card__media img,
+.blog-card__media img,
+.blog-featured__media img {
+  transition: transform 400ms ease;
+}
+
+.project-card:hover .project-card__media img,
+.blog-card:hover .blog-card__media img,
+.blog-featured:hover .blog-featured__media img {
+  transform: scale(1.04);
+}
+
+.project-card__media,
+.blog-card__media,
+.blog-featured__media {
+  overflow: hidden;
+}
+
+.icon-list__icon,
+.feature-grid__icon {
+  transition: transform var(--transition-base);
+}
+
+.icon-list__item:hover .icon-list__icon,
+.feature-grid__item:hover .feature-grid__icon {
+  transform: translateY(-3px) scale(1.06);
+}

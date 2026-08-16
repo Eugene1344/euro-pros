@@ -129,6 +129,69 @@
   });
 })();
 
+/* Generic scroll-reveal: fade/rise, staggered per parent, for cards and
+   list items across every page. (Team cards use their own pass above.) */
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+
+  var SELECTORS = [
+    ".service-tile",
+    ".project-card",
+    ".blog-card",
+    ".blog-featured",
+    ".icon-list__item",
+    ".feature-grid__item",
+    ".process-step",
+    ".process-row",
+    ".value-prop",
+    ".pricing-card",
+    ".stats-bar__item",
+    ".portfolio-strip__item",
+    ".faq-item",
+    ".step-list__item",
+    ".why-list > li",
+    ".checklist > li",
+    ".gallery-grid > img",
+    ".challenge-solution",
+    ".before-after__item",
+    ".team-hero",
+    ".experience-full__content"
+  ].join(",");
+
+  var els = Array.prototype.filter.call(
+    document.querySelectorAll(SELECTORS),
+    function (el) { return !el.closest(".team-card"); }
+  );
+  if (!els.length) return;
+
+  els.forEach(function (el) {
+    el.classList.add("reveal");
+  });
+
+  var staggerIndex = new WeakMap();
+  function nextStagger(parent) {
+    var n = staggerIndex.get(parent) || 0;
+    staggerIndex.set(parent, n + 1);
+    return n;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var idx = nextStagger(entry.target.parentElement);
+      var delay = Math.min(idx * 70, 350);
+      setTimeout(function () {
+        entry.target.classList.add("is-visible");
+      }, delay);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+  els.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
 /* Animated count-up numbers (trust bar) */
 (function () {
   var nums = document.querySelectorAll("[data-count-to]");
