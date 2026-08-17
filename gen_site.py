@@ -46,6 +46,22 @@ def nav_links(active):
     return "\n".join(out)
 
 
+SOCIAL_LINKS = [
+    ("facebook", "https://www.facebook.com/Euro.Pros.Incorp/", "Euro Pros on Facebook"),
+    ("instagram", "https://www.instagram.com/euro_pros_inc/", "Euro Pros on Instagram"),
+    ("youtube", "https://www.youtube.com/@europrosremodeling", "Euro Pros on YouTube"),
+]
+
+
+def social_icons_html(cls, icon_cls="social-icon__glyph"):
+    items = []
+    for key, href, label in SOCIAL_LINKS:
+        items.append(
+            f'        <a href="{href}" class="{cls}" target="_blank" rel="noopener" aria-label="{label}">{icon(key, icon_cls)}</a>'
+        )
+    return "\n".join(items)
+
+
 def header_html(active=""):
     return f"""  <header class="site-header">
     <div class="container">
@@ -56,10 +72,16 @@ def header_html(active=""):
       <nav class="main-nav" id="primary-nav" aria-label="Primary">
 {nav_links(active)}
         <a class="main-nav__phone" href="tel:+18478881919">(847) 888-1919</a>
+        <div class="main-nav__social">
+{social_icons_html("main-nav__social-link")}
+        </div>
       </nav>
 
+      <div class="header-social">
+{social_icons_html("header-social__link")}
+      </div>
+
       <div class="header-actions">
-        <a class="header-phone" href="tel:+18478881919">(847) 888-1919</a>
         <a class="header-call" href="tel:+18478881919" aria-label="Call Euro Pros">{icon('phone')}</a>
         <a class="btn btn--primary" href="contact.html">Get an Estimate</a>
       </div>
@@ -72,7 +94,7 @@ def header_html(active=""):
 
 
 def footer_html():
-    return """  <footer class="site-footer">
+    return f"""  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -80,6 +102,9 @@ def footer_html():
             <img src="images/logo-white.png" alt="Euro Pros Construction &amp; Remodeling" width="201" height="100" />
           </a>
           <p class="footer-brand__tagline">Licensed &middot; Insured &middot; General Contractor</p>
+          <div class="footer-social">
+{social_icons_html("footer-social__link")}
+          </div>
         </div>
 
         <div class="footer-col">
@@ -293,6 +318,9 @@ def icon(name, cls=""):
         "lightbulb": '<path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.7v.4h5.4v-.4c0-.7.3-1.3.8-1.7A6 6 0 0012 3z" />',
         "sink": '<path d="M4 12h16" /><ellipse cx="12" cy="12" rx="8" ry="3" /><path d="M6 15v1a6 6 0 0012 0v-1" /><path d="M12 5v3M9 4l1.5 2M15 4l-1.5 2" />',
         "checklist": '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>',
+        "facebook": '<circle cx="12" cy="12" r="9"/><path d="M13.5 8.5h1.5V6h-1.7c-1.6 0-2.6 1-2.6 2.7V11H9v2.5h1.7V18h2.5v-4.5h1.7l.3-2.5h-2V9c0-.4.2-.5.5-.5z" fill="currentColor" stroke="none"/>',
+        "instagram": '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>',
+        "youtube": '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/>',
     }
     d = paths.get(name, "")
     return f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{d}</svg>'

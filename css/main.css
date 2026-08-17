@@ -111,7 +111,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: var(--space-2xs);
-  padding: 15px 30px;
+  padding: 10px 20px;
   font-size: var(--fs-small);
   font-weight: 600;
   letter-spacing: var(--ls-nav);
@@ -204,7 +204,7 @@ h2 {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: 16px;
 }
 
 .main-nav a {
@@ -224,21 +224,19 @@ h2 {
   display: none;
 }
 
+.main-nav__social {
+  display: none;
+  gap: var(--space-sm);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: var(--space-md);
 }
 
-.header-phone {
-  font-weight: 600;
-  font-size: var(--fs-small);
-  color: var(--color-navy-800);
-  white-space: nowrap;
-}
-
 .header-call {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 38px;
@@ -247,11 +245,66 @@ h2 {
   background: var(--color-navy-800);
   color: var(--color-white);
   flex: none;
+  transition: background var(--transition-base);
+}
+
+.header-call:hover {
+  background: var(--color-navy-700);
 }
 
 .header-call svg {
   width: 17px;
   height: 17px;
+}
+
+/* ---- Social icons (header, mobile nav dropdown, footer) ---- */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header-social__link,
+.main-nav__social-link,
+.footer-social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-navy-800);
+  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+}
+
+.header-social__link:hover,
+.main-nav__social-link:hover {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  border-color: var(--color-navy-800);
+}
+
+.social-icon__glyph {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.footer-social__link {
+  border-color: var(--color-border-dark);
+  color: var(--color-white);
+}
+
+.footer-social__link:hover {
+  background: var(--color-white);
+  color: var(--color-navy-800);
+  border-color: var(--color-white);
 }
 
 /* ---- Exit-intent popup ---- */
@@ -1112,6 +1165,190 @@ h2 {
   fill: var(--color-star);
 }
 
+/* ---- Reviews carousel ---- */
+.review-carousel {
+  position: relative;
+  margin-bottom: var(--space-xl);
+}
+
+.review-carousel--full {
+  max-width: none;
+  width: 100%;
+  padding-inline: var(--space-md);
+  box-sizing: border-box;
+}
+
+.review-carousel--full::before,
+.review-carousel--full::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: clamp(40px, 8vw, 140px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.review-carousel--full::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-bg-soft) 0%, transparent 100%);
+}
+
+.review-carousel--full::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-bg-soft) 0%, transparent 100%);
+}
+
+.review-carousel__track {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: var(--space-2xs);
+}
+
+.review-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  flex: none;
+  scroll-snap-align: start;
+  width: min(360px, 85vw);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.review-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.review-card__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.review-card__name {
+  font-weight: 700;
+  color: var(--color-navy-800);
+}
+
+.review-card__stars svg {
+  width: 15px;
+  height: 15px;
+}
+
+.review-card__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-card__link {
+  margin-top: auto;
+  padding-top: var(--space-2xs);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-navy-800);
+}
+
+.review-carousel__arrows {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.review-carousel__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-navy-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-base);
+}
+
+.review-carousel__arrow:hover {
+  background: var(--color-bg-soft);
+}
+
+/* ---- Google rating widget bar ---- */
+.review-widget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.review-widget__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.review-widget__score {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.review-widget__number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.review-widget__count {
+  color: var(--color-text-on-dark-muted);
+  font-size: var(--fs-small);
+}
+
+.review-widget__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .review-widget {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .service-area__title {
   margin-bottom: var(--space-sm);
 }
@@ -1225,12 +1462,8 @@ h2 {
 
 /* Nav: switches to burger below 992px */
 @media (max-width: 1125px) {
-  .header-phone {
+  .header-social {
     display: none;
-  }
-
-  .header-call {
-    display: flex;
   }
 
   .nav-toggle {
@@ -1268,6 +1501,11 @@ h2 {
   .main-nav__phone {
     display: block;
     color: var(--color-navy-800);
+  }
+
+  .main-nav__social {
+    display: flex;
+    margin-top: var(--space-2xs);
   }
 }
 

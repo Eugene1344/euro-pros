@@ -104,6 +104,33 @@
   });
 })();
 
+/* Review carousel: scroll one card at a time with the prev/next arrows,
+   wrapping around at either end for an infinite loop feel. */
+(function () {
+  var track = document.querySelector(".review-carousel__track");
+  if (!track) return;
+
+  var WRAP_TOLERANCE = 4;
+
+  document.querySelectorAll(".review-carousel__arrow").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var dir = Number(btn.getAttribute("data-scroll")) || 1;
+      var card = track.querySelector(".review-card");
+      var step = card ? card.getBoundingClientRect().width + 24 : 360;
+      var maxScroll = track.scrollWidth - track.clientWidth;
+
+      if (dir > 0 && track.scrollLeft >= maxScroll - WRAP_TOLERANCE) {
+        // Scroll-snap fights a smooth scrollTo back to the start, so jump.
+        track.scrollTo({ left: 0, behavior: "instant" });
+      } else if (dir < 0 && track.scrollLeft <= WRAP_TOLERANCE) {
+        track.scrollTo({ left: maxScroll, behavior: "instant" });
+      } else {
+        track.scrollBy({ left: dir * step, behavior: "smooth" });
+      }
+    });
+  });
+})();
+
 /* Team cards: fade/rise into view, staggered */
 (function () {
   var cards = document.querySelectorAll(".team-card");
@@ -147,6 +174,8 @@
     ".pricing-card",
     ".stats-bar__item",
     ".portfolio-strip__item",
+    ".review-carousel",
+    ".review-widget",
     ".faq-item",
     ".step-list__item",
     ".why-list > li",
