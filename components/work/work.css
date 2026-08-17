@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Projects grid ("Real Projects. Real Results.")
+   ========================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.projects-grid--full {
+  max-width: none;
+  width: 100%;
+  padding-inline: var(--space-lg);
+  box-sizing: border-box;
+}
+
+.projects-grid--full .project-card__media img {
+  aspect-ratio: 4 / 3.6;
+}
+
+.project-card__media {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.project-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  object-fit: cover;
+}
+
+.project-card__title {
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: var(--color-navy-800);
+}
+
+.project-card__location {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

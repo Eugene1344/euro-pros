@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Process preview: See Your Project Before We Build It
+   ========================================================================== */
+
+.process-preview {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.process-preview__step {
+  text-align: center;
+}
+
+.process-preview__step img {
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.process-preview__label {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.process-preview__arrow {
+  color: var(--color-text-soft);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .process-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .process-preview__arrow {
+    transform: rotate(90deg);
+  }
+}

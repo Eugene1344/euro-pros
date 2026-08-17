@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Pricing
+   ========================================================================== */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.pricing-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.pricing-card__label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.pricing-card__sub {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-sm);
+}
+
+.pricing-card__value {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  color: var(--color-navy-800);
+}
+
+.pricing-card--dark {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pricing-card--dark .pricing-card__value {
+  color: var(--color-white);
+  font-size: var(--fs-h3);
+}
+
+.pricing-note {
+  text-align: center;
+  color: var(--color-text-soft);
+  font-size: var(--fs-small);
+}
+
+@media (max-width: 720px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Process steps (reused on service/new-construction pages too)
+   ========================================================================== */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.process-step__index {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-navy-800);
+  margin-bottom: var(--space-xs);
+}
+
+.process-step__title {
+  font-weight: 700;
+  margin-bottom: var(--space-3xs);
+}
+
+.process-step__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+@media (max-width: 1024px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 720px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}

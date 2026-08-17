@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Why choose us
+   ========================================================================== */
+
+.why-us {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.why-us__title {
+  margin-bottom: var(--space-lg);
+}
+
+.why-us__title--numbered {
+  padding-left: 0;
+}
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-left: 0;
+}
+
+.why-list li {
+  display: flex;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.why-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.why-list__index {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy-800);
+  min-width: 32px;
+}
+
+.why-list__text {
+  color: var(--color-text-muted);
+}
+
+.why-us__media img {
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 1024px) {
+  .why-us {
+    grid-template-columns: 1fr;
+  }
+}

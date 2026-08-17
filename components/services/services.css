@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Services grid ("What We Remodel & Build")
+   ========================================================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
+}
+
+.service-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  min-height: 280px;
+  grid-column: span 3;
+}
+
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(5) {
+  grid-column: span 2;
+  min-height: 240px;
+}
+
+.service-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 28, 51, 0) 40%, rgba(15, 28, 51, 0.75) 100%);
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+.service-card__label {
+  position: absolute;
+  left: var(--space-md);
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card,
+  .service-card:nth-child(3),
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) {
+    grid-column: span 1;
+  }
+}

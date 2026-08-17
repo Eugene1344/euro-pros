@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Built on Real Construction Experience (full-bleed photo)
+   ========================================================================== */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 600;
+  color: var(--color-navy-800);
+}
+
+.checklist li svg {
+  flex: none;
+}
+
+.experience-full {
+  position: relative;
+  min-height: 75dvh;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--color-text-on-dark);
+}
+
+.experience-full__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.experience-full__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.experience-full__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(15, 28, 51, 0.94) 0%,
+    rgba(15, 28, 51, 0.88) 30%,
+    rgba(15, 28, 51, 0.5) 58%,
+    rgba(15, 28, 51, 0.08) 85%
+  );
+}
+
+.experience-full .container {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-full__content {
+  max-width: 620px;
+  padding-block: var(--space-2xl);
+}
+
+.experience-full__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.experience-full__text {
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-lg);
+  max-width: 46ch;
+}
+
+.experience-full .checklist li {
+  color: var(--color-white);
+}
+
+.experience-full .checklist li svg circle {
+  fill: var(--color-white);
+}
+
+.experience-full .checklist li svg path {
+  stroke: var(--color-navy-800);
+}
+
+@media (max-width: 1024px) {
+  .experience-full {
+    min-height: 480px;
+  }
+
+  .experience-full__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 28, 51, 0.92) 0%,
+      rgba(15, 28, 51, 0.85) 55%,
+      rgba(15, 28, 51, 0.65) 100%
+    );
+  }
+}

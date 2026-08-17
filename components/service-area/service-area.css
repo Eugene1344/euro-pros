@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Service area
+   ========================================================================== */
+
+.service-area__title {
+  margin-bottom: var(--space-sm);
+}
+
+.service-area__list {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.9;
+}

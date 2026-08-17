@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "euro-pros-static",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8934"],
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["/Users/admin/Desktop/EuroProsDev/serve.js"],
       "port": 8934
     }
   ]

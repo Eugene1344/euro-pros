@@ -1,0 +1,53 @@
+/* ==========================================================================
+   New construction banner
+   ========================================================================== */
+
+.construction-banner .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl);
+}
+
+.construction-banner__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.construction-banner__text {
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.build-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-sm);
+}
+
+.build-steps li {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark);
+}
+
+.build-steps li.is-sep {
+  color: var(--color-text-on-dark-muted);
+}
+
+.construction-banner__media svg,
+.construction-banner__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .construction-banner .container {
+    grid-template-columns: 1fr;
+  }
+}
