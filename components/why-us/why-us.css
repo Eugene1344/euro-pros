@@ -26,7 +26,7 @@
 .why-us-full__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(51, 37, 26, 0.6) 0%, rgba(51, 37, 26, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(133, 101, 48, 0.6) 0%, rgba(133, 101, 48, 0.82) 100%);
 }
 
 .why-us-full .container {
