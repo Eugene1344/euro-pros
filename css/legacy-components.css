@@ -95,7 +95,7 @@
 }
 
 .tabs-row a.is-active {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
 }
 
@@ -153,7 +153,7 @@
 }
 
 .pagination a.is-active {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
 }
 
@@ -467,7 +467,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   font-weight: 700;
   display: flex;
@@ -551,10 +551,12 @@
 .pull-quote {
   border-left: 3px solid var(--color-navy-800);
   background: var(--color-bg-soft);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: var(--space-md) var(--space-lg);
   font-weight: 600;
   color: var(--color-navy-800);
   font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 /* ---- Article layout ---- */
@@ -931,7 +933,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   font-size: 0.7rem;
   font-weight: 700;
@@ -988,28 +990,28 @@
 /* ---- Pricing highlight strip (single service page) ---- */
 .pricing-strip {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
+  flex-direction: column;
   background: var(--color-bg-soft);
   border-radius: var(--radius-md);
-  padding: 40px 20px;
+  overflow: hidden;
   margin-bottom: var(--space-2xl);
 }
 
 .pricing-strip__main {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-lg);
+  padding: 40px var(--space-xl);
 }
 
 .pricing-strip__details {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: var(--space-lg) var(--space-xl);
-  margin-left: auto;
-  padding-left: var(--space-xl);
-  border-left: 1px solid var(--color-border);
+  background: var(--color-brand);
+  padding: var(--space-lg) var(--space-xl);
 }
 
 .pricing-strip__detail {
@@ -1021,24 +1023,24 @@
   font-weight: 700;
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
-  color: var(--color-text-soft);
+  color: var(--color-text-on-dark-muted);
   margin-bottom: 2px;
 }
 
 .pricing-strip__detail-value {
   font-weight: 700;
-  color: var(--color-navy-800);
+  color: var(--color-white);
   font-size: var(--fs-small);
 }
 
 @media (max-width: 900px) {
+  .pricing-strip__main {
+    padding: var(--space-lg);
+  }
+
   .pricing-strip__details {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-md);
-    width: 100%;
+    padding: var(--space-lg);
+    justify-content: flex-start;
   }
 }
 
@@ -1162,7 +1164,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   padding: var(--space-md) var(--space-lg);
 }
 
@@ -1192,7 +1194,7 @@
 
 /* ---- Portfolio strip (full-width navy gallery, e.g. service pages) ---- */
 .portfolio-strip {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-text-on-dark);
   padding-block: var(--space-2xl);
 }
@@ -1410,7 +1412,7 @@
   font: inherit;
   font-size: var(--fs-body);
   color: var(--color-text);
-  background: var(--color-white);
+  background: var(--color-surface);
 }
 
 .field textarea {
@@ -1531,7 +1533,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -1569,7 +1571,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   font-weight: 700;
   font-size: var(--fs-small);

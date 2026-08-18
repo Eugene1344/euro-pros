@@ -15,16 +15,112 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Until real Euro Pros photography is supplied, every generated placeholder
-# photo collapses onto one of these two real stock/reference photos: hero
-# sections get hero.jpg, every other content photo gets placeholder.jpg.
-# Remove this substitution once per-image real photos are ready.
+# SVG collapses onto one of the real stock/reference photos below, matched by
+# topic (bathroom/kitchen/basement/whole-home/new-construction/process/etc.)
+# so pages read as photographed rather than all sharing one or two images.
+# Anything not explicitly listed falls back to hero.jpg (filename contains
+# "hero") or placeholder.jpg. Remove this substitution once real Euro Pros
+# photography is ready.
 _IMG_PATTERN = re.compile(r'src="images/([A-Za-z0-9_.-]+)\.svg"')
+
+_REAL_PHOTO_MAP = {
+    # ---- bathroom (only real bathroom photo we have: hero.jpg) ----
+    "work-bathroom": "hero.jpg",
+    "service-bathroom-hero": "hero.jpg",
+    "service-bathroom-detail": "hero.jpg",
+    "naperville-hero": "hero.jpg",
+    "naperville-challenge": "hero.jpg",
+    "naperville-gallery-1": "hero.jpg",
+    "naperville-gallery-2": "hero.jpg",
+    "naperville-gallery-3": "hero.jpg",
+    "naperville-gallery-4": "hero.jpg",
+    "naperville-gallery-5": "hero.jpg",
+    "naperville-gallery-6": "hero.jpg",
+    "project-naperville": "hero.jpg",
+    "project-classic-bathroom": "hero.jpg",
+    "oakbrook-hero": "hero.jpg",
+    "process-before": "hero.jpg",
+    "process-after": "hero.jpg",
+    "contact-hero": "hero.jpg",
+    "blog-bathroom-ideas": "hero.jpg",
+    "blog-article-hero": "hero.jpg",
+    "blog-article-layout": "hero.jpg",
+    "blog-article-materials": "hero.jpg",
+    "services-hero": "hero.jpg",
+    "blog-hero": "hero.jpg",
+
+    # ---- kitchen ----
+    "work-kitchen": "kitchen-remodel-prep.jpg",
+    "service-kitchen-hero": "kitchen-remodel-prep.jpg",
+    "service-kitchen-detail": "kitchen-remodel-prep.jpg",
+    "project-timeless-kitchen": "kitchen-remodel-prep.jpg",
+    "project-transitional-kitchen": "kitchen-remodel-prep.jpg",
+    "elmhurst-hero": "kitchen-remodel-prep.jpg",
+    "westmont-hero": "kitchen-remodel-prep.jpg",
+    "experience-kitchen": "kitchen-remodel-prep.jpg",
+    "our-work-hero-photo": "kitchen-remodel-prep.jpg",
+    "blog-budget": "kitchen-remodel-prep.jpg",
+
+    # ---- basement ----
+    "work-basement": "basement-demolition-framing.jpg",
+    "service-basement-hero": "basement-demolition-framing.jpg",
+    "service-basement-detail": "basement-demolition-framing.jpg",
+    "project-basement-retreat": "basement-demolition-framing.jpg",
+    "wheaton-hero": "basement-demolition-framing.jpg",
+    "blog-basement-ideas": "basement-demolition-framing.jpg",
+    "project-basement-entertainment": "scaffold-interior-formwork.jpg",
+    "glenview-basement-hero": "scaffold-interior-formwork.jpg",
+
+    # ---- whole-home ----
+    "work-whole-home": "whole-home-addition-exterior.jpg",
+    "service-whole-home-hero": "whole-home-addition-exterior.jpg",
+    "service-whole-home-detail": "whole-home-addition-exterior.jpg",
+    "downers-hero": "whole-home-addition-exterior.jpg",
+    "downers-challenge": "whole-home-addition-exterior.jpg",
+    "downers-gallery-1": "whole-home-addition-exterior.jpg",
+    "downers-gallery-2": "whole-home-addition-exterior.jpg",
+    "downers-gallery-3": "whole-home-addition-exterior.jpg",
+    "project-downers": "whole-home-addition-exterior.jpg",
+    "blog-featured": "whole-home-addition-exterior.jpg",
+
+    # ---- new construction ----
+    "work-new-construction": "new-construction-framed-interior.jpg",
+    "new-construction-hero": "new-construction-framed-interior.jpg",
+    "barrington-hero": "new-construction-framed-interior.jpg",
+    "project-custom-new-home": "new-construction-framed-interior.jpg",
+    "why-framing": "new-construction-framed-interior.jpg",
+    "step-interior": "new-construction-framed-interior.jpg",
+    "step-final": "new-construction-framed-interior.jpg",
+    "blog-new-home": "new-construction-steel-beam.jpg",
+    "step-framing": "new-construction-steel-beam.jpg",
+    "step-mep": "new-construction-steel-beam.jpg",
+    "step-plans": "new-construction-ceiling-grid.jpg",
+    "step-permits": "new-construction-ceiling-grid.jpg",
+    "step-insulation": "new-construction-ceiling-grid.jpg",
+    "step-sitework": "scaffold-interior-formwork.jpg",
+    "step-foundation": "scaffold-interior-formwork.jpg",
+    "about-hero": "scaffold-interior-formwork.jpg",
+    "blog-permit": "scaffold-interior-formwork.jpg",
+
+    # ---- process / craftsmanship shots ----
+    "process-consultation": "process-miter-saw-portrait.jpg",
+    "process-scheduling": "process-miter-saw-portrait.jpg",
+    "process-walkthrough": "process-miter-saw-portrait.jpg",
+    "process-planning": "process-miter-saw-wide.jpg",
+    "process-construction": "process-miter-saw-wide.jpg",
+    "process-communication": "process-miter-saw-wide.jpg",
+    "blog-process": "process-miter-saw-wide.jpg",
+    "about-consultation": "process-miter-saw-wide.jpg",
+}
 
 
 def _substitute_placeholder_images(html):
     def repl(match):
         filename = match.group(1)
-        target = "hero.jpg" if "hero" in filename.lower() else "placeholder.jpg"
+        if filename in _REAL_PHOTO_MAP:
+            target = _REAL_PHOTO_MAP[filename]
+        else:
+            target = "hero.jpg" if "hero" in filename.lower() else "placeholder.jpg"
         return f'src="images/{target}"'
     return _IMG_PATTERN.sub(repl, html)
 
@@ -90,6 +186,16 @@ def header_html(active=""):
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>"""
 
 
@@ -230,6 +336,16 @@ def page(title, description, active, body, extra_head="", favicon_emoji=None):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {{
+      try {{
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      }} catch (e) {{}}
+    }})();
+  </script>
   <title>{title}</title>
   <meta name="description" content="{description}" />
   <link rel="icon" type="image/png" href="favicon.png" />

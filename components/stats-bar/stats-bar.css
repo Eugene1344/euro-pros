@@ -1,6 +1,6 @@
 /* ---- Stats bar ---- */
 .stats-bar {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   padding-block: var(--space-2xl);
 }
 

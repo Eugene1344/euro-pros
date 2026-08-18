@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Remodeling &amp; Construction Services | Euro Pros</title>
   <meta name="description" content="Bathroom, basement, kitchen, and whole-home remodeling plus new home construction — explore Euro Pros' full range of services in the Chicago suburbs." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,6 +63,16 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
@@ -79,7 +99,7 @@
 
       <div class="service-tile-grid">
         <a href="bathroom-remodeling.html" class="service-tile">
-          <img src="images/placeholder.jpg" alt="Bathroom remodeling project" loading="lazy" />
+          <img src="images/hero.jpg" alt="Bathroom remodeling project" loading="lazy" />
           <div class="service-tile__body">
             <h3 class="service-tile__title">Bathroom Remodeling</h3>
             <p class="service-tile__text">Create a beautiful, functional bathroom designed around your lifestyle.</p>
@@ -87,7 +107,7 @@
           </div>
         </a>
         <a href="basement-remodeling.html" class="service-tile">
-          <img src="images/placeholder.jpg" alt="Basement remodeling project" loading="lazy" />
+          <img src="images/basement-demolition-framing.jpg" alt="Basement remodeling project" loading="lazy" />
           <div class="service-tile__body">
             <h3 class="service-tile__title">Basement Remodeling</h3>
             <p class="service-tile__text">Turn your basement into comfortable, versatile living space.</p>
@@ -95,7 +115,7 @@
           </div>
         </a>
         <a href="kitchen-remodeling.html" class="service-tile">
-          <img src="images/placeholder.jpg" alt="Kitchen remodeling project" loading="lazy" />
+          <img src="images/kitchen-remodel-prep.jpg" alt="Kitchen remodeling project" loading="lazy" />
           <div class="service-tile__body">
             <h3 class="service-tile__title">Kitchen Remodeling</h3>
             <p class="service-tile__text">Modern kitchens built for everyday living and effortless entertaining.</p>
@@ -103,7 +123,7 @@
           </div>
         </a>
         <a href="whole-home-remodeling.html" class="service-tile">
-          <img src="images/placeholder.jpg" alt="Whole-home remodeling project" loading="lazy" />
+          <img src="images/whole-home-addition-exterior.jpg" alt="Whole-home remodeling project" loading="lazy" />
           <div class="service-tile__body">
             <h3 class="service-tile__title">Whole-Home Remodeling</h3>
             <p class="service-tile__text">Reimagine your entire home with cohesive design and quality craftsmanship.</p>
@@ -111,13 +131,48 @@
           </div>
         </a>
         <a href="new-home-construction.html" class="service-tile">
-          <img src="images/placeholder.jpg" alt="New home construction project" loading="lazy" />
+          <img src="images/new-construction-framed-interior.jpg" alt="New home construction project" loading="lazy" />
           <div class="service-tile__body">
             <h3 class="service-tile__title">New Home Construction</h3>
             <p class="service-tile__text">Custom homes built with integrity, attention to detail, and lasting quality.</p>
             <span class="service-tile__link">Learn More &rarr;</span>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>What to Expect When You Work With Euro Pros</h2>
+      </div>
+    </div>
+    <div class="process-steps process-steps--5 process-steps--full">
+      <div class="process-step">
+        <p class="process-step__index">01</p>
+        <p class="process-step__title">Consultation</p>
+        <p class="process-step__text">On-site consultation to understand your goals and scope.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">02</p>
+        <p class="process-step__title">Detailed Estimate</p>
+        <p class="process-step__text">Clear written estimate based on the agreed scope of work.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">03</p>
+        <p class="process-step__title">Project Planning</p>
+        <p class="process-step__text">Scheduling, materials, permits and project coordination.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">04</p>
+        <p class="process-step__title">Construction &amp; Communication</p>
+        <p class="process-step__text">Project management and regular communication throughout the construction.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-step__index">05</p>
+        <p class="process-step__title">Final Walkthrough</p>
+        <p class="process-step__text">Review of the completed project with the client.</p>
       </div>
     </div>
   </section>
@@ -167,55 +222,6 @@
     </div>
   </section>
 
-  <section class="section section--soft">
-    <div class="container">
-      <div class="section-head">
-        <h2>What to Expect When You Work With Euro Pros</h2>
-      </div>
-    </div>
-    <div class="process-steps process-steps--5 process-steps--full">
-      <div class="process-step">
-        <p class="process-step__index">01</p>
-        <p class="process-step__title">Consultation</p>
-        <p class="process-step__text">On-site consultation to understand your goals and scope.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-step__index">02</p>
-        <p class="process-step__title">Detailed Estimate</p>
-        <p class="process-step__text">Clear written estimate based on the agreed scope of work.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-step__index">03</p>
-        <p class="process-step__title">Project Planning</p>
-        <p class="process-step__text">Scheduling, materials, permits and project coordination.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-step__index">04</p>
-        <p class="process-step__title">Construction &amp; Communication</p>
-        <p class="process-step__text">Project management and regular communication throughout the construction.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-step__index">05</p>
-        <p class="process-step__title">Final Walkthrough</p>
-        <p class="process-step__text">Review of the completed project with the client.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="experience-full">
-    <div class="experience-full__media">
-      <img src="images/placeholder.jpg" alt="Finished kitchen remodel" loading="lazy" />
-      <div class="experience-full__overlay"></div>
-    </div>
-    <div class="container">
-      <div class="experience-full__content">
-        <h2 class="experience-full__title">Have a Project in Mind?</h2>
-        <p class="experience-full__text">Let's talk about your ideas and how we can bring them to life.</p>
-        <a class="btn btn--white" href="contact.html">Get an Estimate</a>
-      </div>
-    </div>
-  </section>
-  
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -271,6 +277,20 @@
           </button>
           <div class="faq-item__answer"><p>Yes. Every project is backed by our 2-year workmanship warranty, with check-ins at 1 month and 1 year after completion.</p></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-full">
+    <div class="experience-full__media">
+      <img src="images/kitchen-remodel-prep.jpg" alt="Finished kitchen remodel" loading="lazy" />
+      <div class="experience-full__overlay"></div>
+    </div>
+    <div class="container">
+      <div class="experience-full__content">
+        <h2 class="experience-full__title">Have a Project in Mind?</h2>
+        <p class="experience-full__text">Let's talk about your ideas and how we can bring them to life.</p>
+        <a class="btn btn--white" href="contact.html">Get an Estimate</a>
       </div>
     </div>
   </section>

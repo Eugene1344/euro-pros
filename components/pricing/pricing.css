@@ -34,7 +34,7 @@
 }
 
 .pricing-card--dark {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   display: flex;
   flex-direction: column;

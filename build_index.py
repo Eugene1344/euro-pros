@@ -130,6 +130,16 @@ def build():
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {{
+      try {{
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      }} catch (e) {{}}
+    }})();
+  </script>
   <title>Euro Pros Remodeling | Licensed General Contractor in the Chicago Suburbs</title>
   <meta name="description" content="Euro Pros Remodeling is a licensed general contractor serving the Chicago suburbs — bathroom, basement, kitchen, whole-home remodeling and new home construction." />
   <link rel="canonical" href="https://www.europrosremodeling.com/" />

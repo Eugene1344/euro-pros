@@ -1006,6 +1006,7 @@
 .pricing-strip__details {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: var(--space-lg) var(--space-xl);
   margin-left: auto;
   padding-left: var(--space-xl);
@@ -1039,6 +1040,7 @@
     border-top: 1px solid var(--color-border);
     padding-top: var(--space-md);
     width: 100%;
+    justify-content: flex-start;
   }
 }
 

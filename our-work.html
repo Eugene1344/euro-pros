@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Our Work | Euro Pros Construction &amp; Remodeling</title>
   <meta name="description" content="Browse bathroom, basement, kitchen, whole-home, and new construction projects by Euro Pros in the Chicago suburbs." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,12 +63,22 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
 
   <section class="hero hero--sm">
-    <div class="hero__media"><img src="images/hero.jpg" alt="Euro Pros finished kitchen remodel" /></div>
+    <div class="hero__media"><img src="images/kitchen-remodel-prep.jpg" alt="Euro Pros finished kitchen remodel" /></div>
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__content">
@@ -84,7 +104,7 @@
       <div class="projects-grid projects-grid--gallery">
         <a href="project-naperville-bathroom-remodel.html" class="project-card" data-category="bathrooms" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Modern Spa Bathroom" loading="lazy" />
+            <img src="images/hero.jpg" alt="Modern Spa Bathroom" loading="lazy" />
           </div>
           <h3 class="project-card__title">Modern Spa Bathroom</h3>
           <div class="project-card__meta">
@@ -94,7 +114,7 @@
         </a>
         <a href="project-wheaton-basement-retreat.html" class="project-card" data-category="basements" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Finished Basement Retreat" loading="lazy" />
+            <img src="images/basement-demolition-framing.jpg" alt="Finished Basement Retreat" loading="lazy" />
           </div>
           <h3 class="project-card__title">Finished Basement Retreat</h3>
           <div class="project-card__meta">
@@ -104,7 +124,7 @@
         </a>
         <a href="project-elmhurst-transitional-kitchen.html" class="project-card" data-category="kitchens" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Transitional Kitchen" loading="lazy" />
+            <img src="images/kitchen-remodel-prep.jpg" alt="Transitional Kitchen" loading="lazy" />
           </div>
           <h3 class="project-card__title">Transitional Kitchen</h3>
           <div class="project-card__meta">
@@ -114,7 +134,7 @@
         </a>
         <a href="project-downers-grove-whole-home.html" class="project-card" data-category="whole-home" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Whole-Home Remodel" loading="lazy" />
+            <img src="images/whole-home-addition-exterior.jpg" alt="Whole-Home Remodel" loading="lazy" />
           </div>
           <h3 class="project-card__title">Whole-Home Remodel</h3>
           <div class="project-card__meta">
@@ -124,7 +144,7 @@
         </a>
         <a href="project-barrington-custom-new-home.html" class="project-card" data-category="new-construction" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Custom New Home" loading="lazy" />
+            <img src="images/new-construction-framed-interior.jpg" alt="Custom New Home" loading="lazy" />
           </div>
           <h3 class="project-card__title">Custom New Home</h3>
           <div class="project-card__meta">
@@ -134,7 +154,7 @@
         </a>
         <a href="project-oak-brook-classic-bathroom.html" class="project-card" data-category="bathrooms" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Classic Bathroom Renovation" loading="lazy" />
+            <img src="images/hero.jpg" alt="Classic Bathroom Renovation" loading="lazy" />
           </div>
           <h3 class="project-card__title">Classic Bathroom Renovation</h3>
           <div class="project-card__meta">
@@ -144,7 +164,7 @@
         </a>
         <a href="project-glenview-basement-entertainment.html" class="project-card" data-category="basements" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Basement Entertainment Space" loading="lazy" />
+            <img src="images/scaffold-interior-formwork.jpg" alt="Basement Entertainment Space" loading="lazy" />
           </div>
           <h3 class="project-card__title">Basement Entertainment Space</h3>
           <div class="project-card__meta">
@@ -154,7 +174,7 @@
         </a>
         <a href="project-westmont-timeless-kitchen.html" class="project-card" data-category="kitchens" data-filter-target="work">
           <div class="project-card__media">
-            <img src="images/placeholder.jpg" alt="Timeless Kitchen Remodel" loading="lazy" />
+            <img src="images/kitchen-remodel-prep.jpg" alt="Timeless Kitchen Remodel" loading="lazy" />
           </div>
           <h3 class="project-card__title">Timeless Kitchen Remodel</h3>
           <div class="project-card__meta">

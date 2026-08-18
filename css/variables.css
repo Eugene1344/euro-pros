@@ -11,6 +11,12 @@
   --color-navy-700: #1c2c4d;
   --color-navy-600: #2a3e66;
 
+  /* Constant brand navy for surfaces that must always read as "brand
+     navy" regardless of theme (buttons, dark section backgrounds).
+     Unlike --color-navy-800 (used mostly for heading/icon text and
+     flips to a light color in dark mode), this never changes. */
+  --color-brand: #16233f;
+
   /* ---- Color: neutrals ---- */
   --color-white: #ffffff;
   --color-cream: #f4efe6;
@@ -18,6 +24,12 @@
   --color-bg-muted: #eef0f2;
   --color-border: #e1ddd3;
   --color-border-dark: rgba(255, 255, 255, 0.16);
+
+  /* Flippable "page surface" — sticky header, dropdowns, modals, cards.
+     Kept separate from --color-white, which stays literal white forever
+     (it's used for text/icons/buttons on permanently-dark sections like
+     the hero and footer, which must not invert in dark mode). */
+  --color-surface: var(--color-white);
 
   /* ---- Color: text ---- */
   --color-text: #22262e;
@@ -29,6 +41,11 @@
   /* ---- Color: accents ---- */
   --color-star: #f4b400;
   --color-check: #16233f;
+
+  /* Faint decorative tint for the background grid pattern and glows
+     used to add texture to otherwise-plain sections. */
+  --decor-tint: rgba(22, 35, 63, 0.05);
+  --decor-tint-strong: rgba(22, 35, 63, 0.09);
 
   /* ---- Typography ---- */
   --font-heading: "Playfair Display", "Georgia", serif;
@@ -73,4 +90,24 @@
 
   /* ---- Layers ---- */
   --z-header: 100;
+}
+
+/* ==========================================================================
+   Dark theme — toggled via data-theme="dark" on <html> (see header.js).
+   Only the "page chrome" tokens are redefined here: brand-navy surfaces
+   (buttons, .section--navy, stats-bar, etc.) and literal-white
+   text/icons on permanently-dark sections are untouched by design.
+   ========================================================================== */
+:root[data-theme="dark"] {
+  --color-navy-800: #eef1f7;
+  --color-surface: #161b26;
+  --color-bg-soft: #1b2130;
+  --color-bg-muted: #20273a;
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-dark: rgba(255, 255, 255, 0.22);
+  --color-text: #e7e9ee;
+  --color-text-muted: #aab0bd;
+  --color-text-soft: #8b93a3;
+  --decor-tint: rgba(255, 255, 255, 0.045);
+  --decor-tint-strong: rgba(255, 255, 255, 0.08);
 }

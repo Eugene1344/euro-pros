@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Whole-Home Remodel | Euro Pros Construction &amp; Remodeling</title>
   <meta name="description" content="Whole-Home Remodel in Downers Grove, IL by Euro Pros &mdash; a licensed General Contractor serving the Chicago suburbs." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,12 +63,22 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
 
   <section class="hero hero--sm">
-    <div class="hero__media"><img src="images/hero.jpg" alt="Whole-Home Remodel" /></div>
+    <div class="hero__media"><img src="images/whole-home-addition-exterior.jpg" alt="Whole-Home Remodel" /></div>
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__content">
@@ -98,7 +118,7 @@
       <div class="challenge-solution">
         <div>
           <p class="challenge-solution__label">The Challenge</p>
-          <img src="images/placeholder.jpg" alt="Before photo of closed-off layout" />
+          <img src="images/whole-home-addition-exterior.jpg" alt="Before photo of closed-off layout" />
           <p>A choppy, closed-off floor plan separated the kitchen, dining, and living areas, making the home feel smaller and less functional for a growing family.</p>
         </div>
         <div>
@@ -119,9 +139,9 @@
         <span class="eyebrow" style="display:block;">Project Gallery</span>
       </div>
       <div class="gallery-grid">
-        <img src="images/placeholder.jpg" alt="Open-concept living space" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Kitchen island" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Primary suite" loading="lazy" />
+        <img src="images/whole-home-addition-exterior.jpg" alt="Open-concept living space" loading="lazy" />
+        <img src="images/whole-home-addition-exterior.jpg" alt="Kitchen island" loading="lazy" />
+        <img src="images/whole-home-addition-exterior.jpg" alt="Primary suite" loading="lazy" />
       </div>
 
       <div class="review-placeholder">

@@ -21,7 +21,7 @@
 
 .footer-social__link:hover {
   background: var(--color-white);
-  color: var(--color-navy-800);
+  color: var(--color-brand);
   border-color: var(--color-white);
 }
 

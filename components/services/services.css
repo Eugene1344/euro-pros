@@ -37,7 +37,14 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 28, 51, 0) 40%, rgba(15, 28, 51, 0.75) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 28, 51, 0.05) 10%,
+    rgba(15, 28, 51, 0.15) 15%,
+    rgba(15, 28, 51, 0.6) 65%,
+    rgba(15, 28, 51, 0.92) 100%
+  );
+  z-index: 1;
 }
 
 .service-card:hover img {
@@ -53,6 +60,7 @@
   color: var(--color-white);
   font-family: var(--font-heading);
   font-size: var(--fs-h3);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 1024px) {

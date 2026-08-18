@@ -39,3 +39,30 @@
     if (window.innerWidth > NAV_BREAKPOINT) closeNav();
   });
 })();
+
+/* Dark/light theme toggle */
+(function () {
+  var btn = document.querySelector(".theme-toggle");
+  if (!btn) return;
+
+  var STORAGE_KEY = "epTheme";
+  var root = document.documentElement;
+
+  function apply(theme) {
+    root.setAttribute("data-theme", theme);
+    btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch (e) {}
+  }
+
+  // Sync the button's a11y state with whatever the inline head script
+  // already applied (it runs before paint to avoid a flash of the
+  // wrong theme); default to light if nothing was set.
+  apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+  btn.addEventListener("click", function () {
+    apply(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+})();

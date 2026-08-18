@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Do You Need a Permit for Your Remodel? | Euro Pros Blog</title>
   <meta name="description" content="When permits are required, how the process works, and why it protects your investment." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,12 +63,22 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
 
   <section class="hero hero--sm">
-    <div class="hero__media"><img src="images/placeholder.jpg" alt="Do You Need a Permit for Your Remodel?" /></div>
+    <div class="hero__media"><img src="images/scaffold-interior-formwork.jpg" alt="Do You Need a Permit for Your Remodel?" /></div>
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__content">
@@ -92,7 +112,7 @@
       </div>
       <div class="blog-grid">
         <a href="blog-bathroom-remodeling-how-to-plan-your-project.html" class="blog-card">
-          <div class="blog-card__media"><img src="images/placeholder.jpg" alt="Bathroom Remodeling: How to Plan Your Project" loading="lazy" /></div>
+          <div class="blog-card__media"><img src="images/hero.jpg" alt="Bathroom Remodeling: How to Plan Your Project" loading="lazy" /></div>
           <div class="blog-card__body">
             <span class="blog-card__category">Bathroom Remodeling</span>
             <h3 class="blog-card__title">Bathroom Remodeling: How to Plan Your Project</h3>
@@ -104,7 +124,7 @@
           </div>
         </a>
         <a href="blog-kitchen-remodeling-planning-your-project.html" class="blog-card">
-          <div class="blog-card__media"><img src="images/placeholder.jpg" alt="Kitchen Remodeling: Planning Your Project the Right Way" loading="lazy" /></div>
+          <div class="blog-card__media"><img src="images/whole-home-addition-exterior.jpg" alt="Kitchen Remodeling: Planning Your Project the Right Way" loading="lazy" /></div>
           <div class="blog-card__body">
             <span class="blog-card__category">Kitchen Remodeling</span>
             <h3 class="blog-card__title">Kitchen Remodeling: Planning Your Project the Right Way</h3>
@@ -116,7 +136,7 @@
           </div>
         </a>
         <a href="blog-how-to-budget-for-a-home-remodel.html" class="blog-card">
-          <div class="blog-card__media"><img src="images/placeholder.jpg" alt="How to Budget for a Home Remodel" loading="lazy" /></div>
+          <div class="blog-card__media"><img src="images/kitchen-remodel-prep.jpg" alt="How to Budget for a Home Remodel" loading="lazy" /></div>
           <div class="blog-card__body">
             <span class="blog-card__category">Remodeling Tips</span>
             <h3 class="blog-card__title">How to Budget for a Home Remodel</h3>

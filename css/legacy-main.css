@@ -19,8 +19,12 @@ body {
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--color-text);
-  background: var(--color-white);
+  background-color: var(--color-surface);
+  background-image:
+    repeating-linear-gradient(0deg, var(--decor-tint) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(90deg, var(--decor-tint) 0 1px, transparent 1px 64px);
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 img {
@@ -76,15 +80,29 @@ button {
 }
 
 .section--navy {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-text-on-dark);
 }
 
 .section-head {
+  position: relative;
   text-align: center;
   max-width: 640px;
   margin-inline: auto;
   margin-bottom: var(--space-xl);
+}
+
+.section-head::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--decor-tint-strong) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 h2 {
@@ -123,9 +141,9 @@ h2 {
 }
 
 .btn--primary {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
-  border-color: var(--color-navy-800);
+  border-color: var(--color-brand);
 }
 
 .btn--primary:hover {
@@ -139,7 +157,7 @@ h2 {
 }
 
 .btn--outline-dark:hover {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
 }
 
@@ -151,13 +169,13 @@ h2 {
 
 .btn--outline-light:hover {
   background: var(--color-white);
-  color: var(--color-navy-800);
+  color: var(--color-brand);
   border-color: var(--color-white);
 }
 
 .btn--white {
   background: var(--color-white);
-  color: var(--color-navy-800);
+  color: var(--color-brand);
   border-color: var(--color-white);
 }
 
@@ -177,8 +195,13 @@ h2 {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background: var(--color-white);
+  background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-inline-end: var(--space-md);
 }
 
 .site-header .container {
@@ -188,9 +211,61 @@ h2 {
   justify-content: space-between;
   gap: var(--space-lg);
   padding-block: var(--space-sm);
+  flex: 1;
+  min-width: 0;
 
   @media screen and (max-width: 480px) {
     gap: 24px;
+  }
+}
+
+/* ---- Theme toggle: lives outside .container so it sits near the true
+   right edge of the viewport, not the (narrower) content container. ---- */
+.theme-toggle {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-navy-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+.theme-toggle:hover {
+  background: var(--color-bg-soft);
+}
+
+.theme-toggle__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle__icon--moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .theme-toggle__icon {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -246,7 +321,7 @@ h2 {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   flex: none;
   transition: background var(--transition-base);
@@ -288,9 +363,9 @@ h2 {
 
 .header-social__link:hover,
 .main-nav__social-link:hover {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
-  border-color: var(--color-navy-800);
+  border-color: var(--color-brand);
 }
 
 .social-icon__glyph {
@@ -311,7 +386,7 @@ h2 {
 
 .footer-social__link:hover {
   background: var(--color-white);
-  color: var(--color-navy-800);
+  color: var(--color-brand);
   border-color: var(--color-white);
 }
 
@@ -337,7 +412,7 @@ h2 {
 
 .exit-popup {
   position: relative;
-  background: var(--color-white);
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   max-width: 460px;
@@ -359,7 +434,7 @@ h2 {
   height: 32px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  background: var(--color-white);
+  background: var(--color-surface);
   font-size: 1.3rem;
   line-height: 1;
   color: var(--color-text-soft);
@@ -640,6 +715,30 @@ h2 {
   align-items: center;
 }
 
+/* Top-aligned variant for text+media blocks where the text column is
+   shorter than the image (e.g. a paragraph + pull-quote) so the two
+   columns start at the same baseline instead of centering awkwardly. */
+.why-us--top {
+  align-items: start;
+}
+
+.why-us--top .why-us__media img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Wider media column, for blocks where the photo should read as the
+   dominant element. */
+.why-us--media-lg {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+@media (max-width: 1024px) {
+  .why-us--media-lg {
+    grid-template-columns: 1fr;
+  }
+}
+
 .why-us__title {
   margin-bottom: var(--space-lg);
 }
@@ -731,7 +830,7 @@ h2 {
 
 /* ---- Stats bar ---- */
 .stats-bar {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   padding-block: var(--space-2xl);
 }
 
@@ -1114,7 +1213,7 @@ h2 {
 }
 
 .pricing-card--dark {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   display: flex;
   flex-direction: column;
@@ -1228,7 +1327,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  background: var(--color-white);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
@@ -1294,7 +1393,7 @@ h2 {
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  background: var(--color-white);
+  background: var(--color-surface);
   color: var(--color-navy-800);
   display: flex;
   align-items: center;
@@ -1313,7 +1412,7 @@ h2 {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-lg);
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   border-radius: var(--radius-md);
   padding: var(--space-lg) var(--space-xl);
@@ -1486,7 +1585,7 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-md);
-    background: var(--color-white);
+    background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-lg) var(--container-padding);
     box-shadow: var(--shadow-md);

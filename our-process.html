@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Our Process | Euro Pros Construction &amp; Remodeling</title>
   <meta name="description" content="From consultation to final walkthrough &mdash; see the clear, organized process Euro Pros follows on every remodeling and construction project." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,12 +63,22 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
 
   <section class="hero hero--sm">
-    <div class="hero__media"><img src="images/hero.jpg" alt="Bathroom remodeling in progress" /></div>
+    <div class="hero__media"><img src="images/kitchen-remodel-prep.jpg" alt="Bathroom remodeling in progress" /></div>
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__content">
@@ -72,7 +92,7 @@
     <div class="container">
       <div class="process-rows">
       <div class="process-row">
-        <div class="process-row__media"><img src="images/placeholder.jpg" alt="Consultation" loading="lazy" /></div>
+        <div class="process-row__media"><img src="images/process-miter-saw-portrait.jpg" alt="Consultation" loading="lazy" /></div>
         <div class="process-row__content">
           <p class="process-row__index">01</p>
           <h3 class="process-row__title">Consultation</h3>
@@ -85,10 +105,10 @@
           <h3 class="process-row__title">Planning &amp; Estimate</h3>
           <p class="process-row__text">We develop a plan tailored to your project and provide a detailed, transparent estimate so you know exactly what to expect.</p>
         </div>
-        <div class="process-row__media"><img src="images/placeholder.jpg" alt="Planning and Estimate" loading="lazy" /></div>
+        <div class="process-row__media"><img src="images/process-miter-saw-wide.jpg" alt="Planning and Estimate" loading="lazy" /></div>
       </div>
       <div class="process-row">
-        <div class="process-row__media"><img src="images/placeholder.jpg" alt="Scheduling and Preparation" loading="lazy" /></div>
+        <div class="process-row__media"><img src="images/process-miter-saw-portrait.jpg" alt="Scheduling and Preparation" loading="lazy" /></div>
         <div class="process-row__content">
           <p class="process-row__index">03</p>
           <h3 class="process-row__title">Scheduling &amp; Preparation</h3>
@@ -101,10 +121,10 @@
           <h3 class="process-row__title">Construction</h3>
           <p class="process-row__text">Our team gets to work. We manage daily progress, maintain a clean job site, and keep you informed every step of the way.</p>
         </div>
-        <div class="process-row__media"><img src="images/placeholder.jpg" alt="Construction" loading="lazy" /></div>
+        <div class="process-row__media"><img src="images/process-miter-saw-wide.jpg" alt="Construction" loading="lazy" /></div>
       </div>
       <div class="process-row">
-        <div class="process-row__media"><img src="images/placeholder.jpg" alt="Final Walkthrough" loading="lazy" /></div>
+        <div class="process-row__media"><img src="images/process-miter-saw-portrait.jpg" alt="Final Walkthrough" loading="lazy" /></div>
         <div class="process-row__content">
           <p class="process-row__index">05</p>
           <h3 class="process-row__title">Final Walkthrough</h3>
@@ -165,7 +185,7 @@
           <p style="color:var(--color-text-muted);margin-top:var(--space-md);max-width:44ch;">We believe great projects start with great communication. You'll have a dedicated point of contact and regular updates so you always know what's happening.</p>
         </div>
         <div class="why-us__media">
-          <img src="images/placeholder.jpg" alt="Euro Pros team discussing a project" loading="lazy" />
+          <img src="images/process-miter-saw-wide.jpg" alt="Euro Pros team discussing a project" loading="lazy" />
         </div>
       </div>
     </div>

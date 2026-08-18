@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Euro Pros Remodeling | Licensed General Contractor in the Chicago Suburbs</title>
   <meta name="description" content="Euro Pros Remodeling is a licensed general contractor serving the Chicago suburbs — bathroom, basement, kitchen, whole-home remodeling and new home construction." />
   <link rel="canonical" href="https://www.europrosremodeling.com/" />
@@ -83,8 +93,6 @@
 </head>
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo" aria-label="Euro Pros Remodeling — Home">
@@ -121,6 +129,16 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main id="main-content">
@@ -146,10 +164,10 @@
   <div class="trust-bar" aria-label="Trust indicators">
     <div class="container">
       <ul>
-        <li>Licensed &amp; Insured</li>
-        <li>General Contractor</li>
         <li><span class="trust-bar__num" data-count-to="15">0</span>+ Years Construction Experience</li>
+        <li>Licensed &amp; Insured</li>
         <li><span class="trust-bar__num" data-count-to="5">0</span>-Star Rated</li>
+        <li>General Contractor</li>
         <li><span class="trust-bar__num" data-count-to="2">0</span>-Year Workmanship Warranty</li>
       </ul>
     </div>
@@ -167,56 +185,57 @@
           <span class="service-card__label">Bathroom Remodeling</span>
         </a>
         <a href="basement-remodeling.html" class="service-card">
-          <img src="images/placeholder.jpg" alt="Basement remodeling project" loading="lazy" width="400" height="280" />
+          <img src="images/basement-demolition-framing.jpg" alt="Basement remodeling project" loading="lazy" width="400" height="280" />
           <span class="service-card__label">Basement Remodeling</span>
         </a>
         <a href="kitchen-remodeling.html" class="service-card">
-          <img src="images/placeholder.jpg" alt="Kitchen remodeling project" loading="lazy" width="300" height="240" />
+          <img src="images/kitchen-remodel-prep.jpg" alt="Kitchen remodeling project" loading="lazy" width="300" height="240" />
           <span class="service-card__label">Kitchen Remodeling</span>
         </a>
         <a href="whole-home-remodeling.html" class="service-card">
-          <img src="images/placeholder.jpg" alt="Whole-home remodeling project" loading="lazy" width="300" height="240" />
+          <img src="images/whole-home-addition-exterior.jpg" alt="Whole-home remodeling project" loading="lazy" width="300" height="240" />
           <span class="service-card__label">Whole-Home Remodeling</span>
         </a>
         <a href="new-home-construction.html" class="service-card">
-          <img src="images/placeholder.jpg" alt="New home construction project" loading="lazy" width="300" height="240" />
+          <img src="images/new-construction-framed-interior.jpg" alt="New home construction project" loading="lazy" width="300" height="240" />
           <span class="service-card__label">New Home Construction</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="about" aria-labelledby="why-us-heading">
+  <section class="why-us-full" id="about" aria-labelledby="why-us-heading">
+    <div class="why-us-full__media">
+      <img src="images/new-construction-steel-beam.jpg" alt="New home under construction, framing stage" loading="lazy" width="1600" height="1000" />
+      <div class="why-us-full__overlay"></div>
+    </div>
     <div class="container">
-      <div class="why-us">
-        <div class="why-us__content">
-          <h2 class="why-us__title why-us__title--numbered" id="why-us-heading">Why Homeowners Choose Euro Pros</h2>
-          <ol class="why-list">
-            <li>
-              <span class="why-list__index" aria-hidden="true">01</span>
-              <span class="why-list__text">Licensed general contractor with proven experience</span>
-            </li>
-            <li>
-              <span class="why-list__index" aria-hidden="true">02</span>
-              <span class="why-list__text">Clear communication and honest timelines</span>
-            </li>
-            <li>
-              <span class="why-list__index" aria-hidden="true">03</span>
-              <span class="why-list__text">Quality craftsmanship with attention to detail</span>
-            </li>
-            <li>
-              <span class="why-list__index" aria-hidden="true">04</span>
-              <span class="why-list__text">On-time, on-budget project delivery</span>
-            </li>
-            <li>
-              <span class="why-list__index" aria-hidden="true">05</span>
-              <span class="why-list__text">Family-owned, local team and reputation</span>
-            </li>
-          </ol>
+      <div class="why-us-full__content">
+        <div class="section-head section-head--light">
+          <h2 id="why-us-heading">Why Homeowners Choose Euro Pros</h2>
         </div>
-        <div class="why-us__media">
-          <img src="images/placeholder.jpg" alt="New home under construction, framing stage" loading="lazy" width="600" height="450" />
-        </div>
+        <ol class="why-grid">
+          <li class="why-grid__item">
+            <span class="why-grid__index" aria-hidden="true">01</span>
+            <span class="why-grid__text">Licensed general contractor with proven experience</span>
+          </li>
+          <li class="why-grid__item">
+            <span class="why-grid__index" aria-hidden="true">02</span>
+            <span class="why-grid__text">Clear communication and honest timelines</span>
+          </li>
+          <li class="why-grid__item">
+            <span class="why-grid__index" aria-hidden="true">03</span>
+            <span class="why-grid__text">Quality craftsmanship with attention to detail</span>
+          </li>
+          <li class="why-grid__item">
+            <span class="why-grid__index" aria-hidden="true">04</span>
+            <span class="why-grid__text">On-time, on-budget project delivery</span>
+          </li>
+          <li class="why-grid__item">
+            <span class="why-grid__index" aria-hidden="true">05</span>
+            <span class="why-grid__text">Family-owned, local team and reputation</span>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -261,21 +280,21 @@
       </a>
       <a href="our-work.html" class="project-card">
         <div class="project-card__media">
-          <img src="images/placeholder.jpg" alt="Glenview kitchen remodel" loading="lazy" width="400" height="340" />
+          <img src="images/process-miter-saw-wide.jpg" alt="Glenview kitchen remodel" loading="lazy" width="400" height="340" />
         </div>
         <h3 class="project-card__title">Glenview Kitchen Remodel</h3>
         <p class="project-card__location">Glenview, IL</p>
       </a>
       <a href="our-work.html" class="project-card">
         <div class="project-card__media">
-          <img src="images/placeholder.jpg" alt="Arlington Heights basement remodel" loading="lazy" width="400" height="340" />
+          <img src="images/process-miter-saw-portrait.jpg" alt="Arlington Heights basement remodel" loading="lazy" width="400" height="340" />
         </div>
         <h3 class="project-card__title">Arlington Heights Basement</h3>
         <p class="project-card__location">Arlington Heights, IL</p>
       </a>
       <a href="project-downers-grove-whole-home.html" class="project-card">
         <div class="project-card__media">
-          <img src="images/placeholder.jpg" alt="Whole-home remodel in Downers Grove" loading="lazy" width="400" height="340" />
+          <img src="images/new-construction-ceiling-grid.jpg" alt="Whole-home remodel in Downers Grove" loading="lazy" width="400" height="340" />
         </div>
         <h3 class="project-card__title">Whole-Home Remodel</h3>
         <p class="project-card__location">Downers Grove, IL</p>
@@ -306,7 +325,7 @@
     </div>
   </section>
 
-  <section class="section section--soft" id="process" aria-labelledby="process-preview-heading">
+  <section class="section section--soft process-preview-section" id="process" aria-labelledby="process-preview-heading">
     <div class="container">
       <div class="section-head">
         <h2 id="process-preview-heading">See Your Project Before We Build It</h2>
@@ -331,7 +350,7 @@
     </div>
   </section>
 
-  <section class="section section--soft" aria-labelledby="process-steps-heading">
+  <section class="section section--soft process-steps-section" aria-labelledby="process-steps-heading">
     <div class="container">
       <div class="section-head">
         <h2 id="process-steps-heading">Our Process</h2>
@@ -362,38 +381,7 @@
     </div>
   </section>
 
-  <section class="experience-full" aria-labelledby="experience-heading">
-    <div class="experience-full__media">
-      <img src="images/placeholder.jpg" alt="Finished kitchen remodel with dark island" loading="lazy" width="1600" height="1067" />
-      <div class="experience-full__overlay"></div>
-    </div>
-    <div class="container">
-      <div class="experience-full__content">
-        <h2 class="experience-full__title" id="experience-heading">Built on Real Construction Experience</h2>
-        <p class="experience-full__text">Our construction experience began in 2010 and continues to shape the way we build today.</p>
-        <ul class="checklist">
-          <li>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Licensed General Contractor
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Licensed &amp; Insured
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Residential Remodeling &amp; Construction
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Project Management
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--soft" id="reviews" aria-labelledby="reviews-heading">
+  <section class="section section--soft reviews-section" id="reviews" aria-labelledby="reviews-heading">
     <div class="container">
       <div class="section-head">
         <h2 id="reviews-heading">What Our Clients Say</h2>
@@ -539,6 +527,37 @@
           <a class="btn btn--white" href="https://www.google.com/maps?cid=4694019925259290756" target="_blank" rel="noopener">Write a Review<span class="visually-hidden"> (opens in a new tab)</span></a>
           <a class="btn btn--outline-light" href="https://www.google.com/maps?cid=4694019925259290756" target="_blank" rel="noopener">View All Reviews<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-full" aria-labelledby="experience-heading">
+    <div class="experience-full__media">
+      <img src="images/scaffold-interior-formwork.jpg" alt="Interior scaffolding and formwork during a construction project" loading="lazy" width="1600" height="1067" />
+      <div class="experience-full__overlay"></div>
+    </div>
+    <div class="container">
+      <div class="experience-full__content">
+        <h2 class="experience-full__title" id="experience-heading">Built on Real Construction Experience</h2>
+        <p class="experience-full__text">Our construction experience began in 2010 and continues to shape the way we build today.</p>
+        <ul class="checklist">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Licensed General Contractor
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Licensed &amp; Insured
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Residential Remodeling &amp; Construction
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6 10.2l2.6 2.6L14.5 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Project Management
+          </li>
+        </ul>
       </div>
     </div>
   </section>

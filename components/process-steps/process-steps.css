@@ -2,6 +2,13 @@
    Process steps (reused on service/new-construction pages too)
    ========================================================================== */
 
+/* Faint pinboard dot-grid, distinct from the body's line grid and the
+   process-preview section's rings above it. */
+.process-steps-section {
+  background-image: radial-gradient(var(--decor-tint-strong) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

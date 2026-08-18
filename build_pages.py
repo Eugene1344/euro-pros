@@ -1291,13 +1291,15 @@ OUR_APPROACH = [
     ("Integrity", "We believe in honest pricing, realistic timelines, and earning your trust every day."),
 ]
 
-who_we_are_html = "\n".join(f"""            <li>
-              {icon('check-circle')}
-              <div>
-                <p class="why-list__strong">{t}</p>
-                <p class="why-list__sub">{d}</p>
-              </div>
-            </li>""" for t, d in WHO_WE_ARE)
+WHO_WE_ARE_ICONS = ["person", "hardhat", "shield", "house", "framing", "clipboard"]
+
+who_we_are_html = "\n".join(f"""        <div class="icon-list__item">
+          {icon(i, 'icon-list__icon')}
+          <div>
+            <p class="icon-list__title">{t}</p>
+            <p class="icon-list__text">{d}</p>
+          </div>
+        </div>""" for i, (t, d) in zip(WHO_WE_ARE_ICONS, WHO_WE_ARE))
 
 approach_html = "\n".join(f"""        <div class="feature-grid__item" style="text-align:left;">
           <p class="feature-grid__title" style="border-top:2px solid var(--color-navy-800);padding-top:var(--space-sm);">{t}</p>
@@ -1317,14 +1319,14 @@ about_body = f"""  <section class="hero hero--sm">
 
   <section class="section">
     <div class="container">
-      <div class="why-us">
+      <div class="why-us why-us--top">
+        <div class="why-us__media">
+          <img src="images/experience-kitchen.svg" alt="Finished kitchen remodel" loading="lazy" />
+        </div>
         <div class="why-us__content">
           <h2 class="why-us__title">Construction Experience Since 2010</h2>
           <p style="color:var(--color-text-muted);margin-top:var(--space-md);max-width:44ch;">Our team's construction experience dates back to 2010, with a foundation built on hands-on work, proven processes, and a commitment to doing things right.</p>
           <div class="pull-quote" style="margin-top:var(--space-lg);max-width:44ch;">Euro Pros Construction &amp; Remodeling has proudly served homeowners as a company for nearly 5 years.</div>
-        </div>
-        <div class="why-us__media">
-          <img src="images/experience-kitchen.svg" alt="Finished kitchen remodel" loading="lazy" />
         </div>
       </div>
 
@@ -1337,16 +1339,18 @@ about_body = f"""  <section class="hero hero--sm">
 
   <section class="section section--soft" id="who-we-are">
     <div class="container">
-      <div class="why-us">
+      <div class="why-us why-us--top">
         <div class="why-us__content">
-          <h2 class="why-us__title">Who We Are</h2>
-          <ul class="why-list" style="margin-top:var(--space-lg);">
-{who_we_are_html}
-          </ul>
+          <span class="eyebrow">Who We Are</span>
+          <h2 class="why-us__title">A Local Team Built on Real Construction Experience</h2>
+          <p style="color:var(--color-text-muted);margin-top:var(--space-sm);max-width:48ch;">Every project is backed by a licensed, insured team that treats your home like our own &mdash; from the first walkthrough to the final coat of paint.</p>
         </div>
         <div class="why-us__media">
           <img src="images/about-consultation.svg" alt="Euro Pros team member consulting with a homeowner" loading="lazy" />
         </div>
+      </div>
+      <div class="icon-list" style="margin-top:var(--space-2xl);">
+{who_we_are_html}
       </div>
     </div>
   </section>

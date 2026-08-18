@@ -2,6 +2,41 @@
    Process preview: See Your Project Before We Build It
    ========================================================================== */
 
+.process-preview-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faint viewfinder-style rings, echoing the before/after photo theme. */
+.process-preview-section::before,
+.process-preview-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--decor-tint-strong);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.process-preview-section::before {
+  width: 340px;
+  height: 340px;
+  top: -130px;
+  right: -110px;
+}
+
+.process-preview-section::after {
+  width: 190px;
+  height: 190px;
+  top: -35px;
+  right: 65px;
+}
+
+.process-preview-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .process-preview {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;

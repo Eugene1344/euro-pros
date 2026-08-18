@@ -6,8 +6,13 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background: var(--color-white);
+  background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-inline-end: var(--space-md);
 }
 
 .site-header .container {
@@ -17,9 +22,61 @@
   justify-content: space-between;
   gap: var(--space-lg);
   padding-block: var(--space-sm);
+  flex: 1;
+  min-width: 0;
 
   @media screen and (max-width: 480px) {
     gap: 24px;
+  }
+}
+
+/* ---- Theme toggle: lives outside .container so it sits near the true
+   right edge of the viewport, not the (narrower) content container. ---- */
+.theme-toggle {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-navy-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+.theme-toggle:hover {
+  background: var(--color-bg-soft);
+}
+
+.theme-toggle__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle__icon--moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .theme-toggle__icon {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -90,7 +147,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
   flex: none;
   transition: background var(--transition-base);
@@ -132,9 +189,9 @@
 
 .header-social__link:hover,
 .main-nav__social-link:hover {
-  background: var(--color-navy-800);
+  background: var(--color-brand);
   color: var(--color-white);
-  border-color: var(--color-navy-800);
+  border-color: var(--color-brand);
 }
 
 .social-icon__glyph {
@@ -192,7 +249,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-md);
-    background: var(--color-white);
+    background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-lg) var(--container-padding);
     box-shadow: var(--shadow-md);

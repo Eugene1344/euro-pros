@@ -17,7 +17,7 @@
   function animate(el) {
     var target = parseFloat(el.getAttribute("data-count-to"));
     var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
-    var duration = 1200;
+    var duration = 2500;
     var start = Date.now();
 
     // Time-based (not requestAnimationFrame-based) so it still completes

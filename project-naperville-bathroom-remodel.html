@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Applied synchronously, before CSS paints, so a returning visitor's
+    // saved theme doesn't flash the wrong palette for a frame.
+    (function () {
+      try {
+        var t = localStorage.getItem("epTheme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Naperville Bathroom Remodel | Euro Pros Construction &amp; Remodeling</title>
   <meta name="description" content="Naperville Bathroom Remodel in Naperville, IL by Euro Pros &mdash; a licensed General Contractor serving the Chicago suburbs." />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -53,6 +63,16 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1110.2 4a6.3 6.3 0 009.8 10.5z" />
+      </svg>
+    </button>
   </header>
 
   <main>
@@ -98,7 +118,7 @@
       <div class="challenge-solution">
         <div>
           <p class="challenge-solution__label">The Challenge</p>
-          <img src="images/placeholder.jpg" alt="Before photo of outdated bathroom" />
+          <img src="images/hero.jpg" alt="Before photo of outdated bathroom" />
           <p>The existing bathroom was outdated, cramped, and lacked functionality. Dark finishes, an inefficient layout, and minimal storage made the space feel smaller and didn't meet the homeowners' needs for comfort or style.</p>
         </div>
         <div>
@@ -121,11 +141,11 @@
       <div class="before-after">
         <div class="before-after__item">
           <span class="before-after__tag">Before</span>
-          <img src="images/placeholder.jpg" alt="Bathroom before remodel" />
+          <img src="images/hero.jpg" alt="Bathroom before remodel" />
         </div>
         <div class="before-after__item">
           <span class="before-after__tag">After</span>
-          <img src="images/placeholder.jpg" alt="Bathroom after remodel" />
+          <img src="images/hero.jpg" alt="Bathroom after remodel" />
         </div>
       </div>
 
@@ -133,12 +153,12 @@
         <span class="eyebrow" style="display:block;">Project Gallery</span>
       </div>
       <div class="gallery-grid">
-        <img src="images/placeholder.jpg" alt="Walk-in shower" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Double vanity" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Freestanding tub" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Tiled niche" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Matte black fixtures" loading="lazy" />
-        <img src="images/placeholder.jpg" alt="Custom linen cabinet" loading="lazy" />
+        <img src="images/hero.jpg" alt="Walk-in shower" loading="lazy" />
+        <img src="images/hero.jpg" alt="Double vanity" loading="lazy" />
+        <img src="images/hero.jpg" alt="Freestanding tub" loading="lazy" />
+        <img src="images/hero.jpg" alt="Tiled niche" loading="lazy" />
+        <img src="images/hero.jpg" alt="Matte black fixtures" loading="lazy" />
+        <img src="images/hero.jpg" alt="Custom linen cabinet" loading="lazy" />
       </div>
 
       <div class="section-head">
