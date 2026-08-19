@@ -45,6 +45,7 @@
   }, { threshold: 0.4 });
 
   nums.forEach(function (n) {
+    n.textContent = "0";
     observer.observe(n);
   });
 })();

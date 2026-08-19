@@ -231,8 +231,8 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Nav: switches to burger below 1125px */
-@media (max-width: 1125px) {
+/* The full navigation needs more room than the content breakpoint provides. */
+@media (max-width: 1280px) {
   .header-social {
     display: none;
   }
@@ -241,9 +241,13 @@
     display: flex;
   }
 
+  .header-actions {
+    margin-left: auto;
+  }
+
   .main-nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 79px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -280,7 +284,26 @@
   }
 }
 
+@media (max-width: 720px) {
+  .header-call {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
+  .site-header {
+    gap: var(--space-2xs);
+    padding-inline-end: var(--space-sm);
+  }
+
+  .site-header .container {
+    gap: var(--space-sm);
+  }
+
+  .logo {
+    flex: 0 0 auto;
+  }
+
   .header-actions {
     gap: var(--space-2xs);
   }
@@ -288,5 +311,11 @@
   .header-actions .btn--primary {
     padding-inline: 14px;
     font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions .btn--primary {
+    display: none;
   }
 }

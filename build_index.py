@@ -18,6 +18,7 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 COMPONENTS_DIR = os.path.join(ROOT, "components")
+ASSET_VERSION = "20260818-4"
 
 # Components rendered inside <header>/<main>/<footer> wrappers, in order.
 HEADER_COMPONENTS = ["header"]
@@ -63,13 +64,13 @@ def component_html(name):
 
 def css_links():
     links = [
-        '  <link rel="stylesheet" href="css/variables.css" />',
-        '  <link rel="stylesheet" href="css/main.css" />',
+        f'  <link rel="stylesheet" href="css/variables.css?v={ASSET_VERSION}" />',
+        f'  <link rel="stylesheet" href="css/main.css?v={ASSET_VERSION}" />',
         '  <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css" />',
     ]
     for name in ALL_COMPONENTS:
         if read_component(name, "css") is not None:
-            links.append(f'  <link rel="stylesheet" href="components/{name}/{name}.css" />')
+            links.append(f'  <link rel="stylesheet" href="components/{name}/{name}.css?v={ASSET_VERSION}" />')
     return "\n".join(links)
 
 
@@ -77,7 +78,7 @@ def js_scripts():
     scripts = ['  <script src="vendor/swiper/swiper-bundle.min.js"></script>']
     for name in ALL_COMPONENTS:
         if read_component(name, "js") is not None:
-            scripts.append(f'  <script src="components/{name}/{name}.js"></script>')
+            scripts.append(f'  <script src="components/{name}/{name}.js?v={ASSET_VERSION}"></script>')
     return "\n".join(scripts)
 
 

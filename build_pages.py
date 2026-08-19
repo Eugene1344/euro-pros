@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Content for every interior page. Run: python3 build_pages.py"""
-from gen_site import page, write, cta_banner, icon
+from gen_site import page, write, cta_banner, icon, component_css
 
 # ============================================================== SERVICES ===
 services_body = f"""  <section class="hero hero--sm">
@@ -227,6 +227,7 @@ write("services.html", page(
     description="Bathroom, basement, kitchen, and whole-home remodeling plus new home construction — explore Euro Pros' full range of services in the Chicago suburbs.",
     active="services",
     body=services_body,
+    extra_head=component_css("service-tiles"),
 ))
 
 
@@ -1970,4 +1971,5 @@ write("contact.html", page(
     description="Tell Euro Pros about your remodeling or new construction project and request a free estimate. Serving the Chicago suburbs.",
     active="contact",
     body=contact_body,
+    extra_head=component_css("contact-form"),
 ))

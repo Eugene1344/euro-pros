@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
     repeating-linear-gradient(90deg, var(--decor-tint) 0 1px, transparent 1px 64px);
   -webkit-font-smoothing: antialiased;
   transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: clip;
 }
 
 img {
@@ -97,7 +99,7 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 420px;
+  width: min(420px, 100vw);
   height: 420px;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, var(--decor-tint-strong) 0%, transparent 70%);
@@ -937,7 +939,7 @@ h2 {
 }
 
 .projects-grid--full .project-card__media img {
-  aspect-ratio: 4 / 3.6;
+  aspect-ratio: 4 / 3;
 }
 
 .project-card__media {
@@ -948,7 +950,7 @@ h2 {
 
 .project-card__media img {
   width: 100%;
-  aspect-ratio: 4 / 3.4;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
@@ -1574,8 +1576,8 @@ h2 {
    Responsive
    ========================================================================== */
 
-/* Nav: switches to burger below 992px */
-@media (max-width: 1125px) {
+/* The full navigation needs more room than the content breakpoint provides. */
+@media (max-width: 1280px) {
   .header-social {
     display: none;
   }
@@ -1584,9 +1586,13 @@ h2 {
     display: flex;
   }
 
+  .header-actions {
+    margin-left: auto;
+  }
+
   .main-nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 79px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -1620,6 +1626,12 @@ h2 {
   .main-nav__social {
     display: flex;
     margin-top: var(--space-2xs);
+  }
+}
+
+@media (max-width: 720px) {
+  .header-call {
+    display: none;
   }
 }
 
@@ -1746,6 +1758,23 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .site-header {
+    gap: var(--space-2xs);
+    padding-inline-end: var(--space-sm);
+  }
+
+  .site-header .container {
+    gap: var(--space-sm);
+  }
+
+  .logo {
+    flex: 0 0 auto;
+  }
+
+  .header-call {
+    display: none;
+  }
+
   .header-actions {
     gap: var(--space-2xs);
   }
@@ -1779,6 +1808,12 @@ h2 {
   .trust-bar li {
     font-size: 0.68rem;
     letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions .btn--primary {
+    display: none;
   }
 }
 

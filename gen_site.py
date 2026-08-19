@@ -10,6 +10,8 @@ editing HEADER_HTML / FOOTER_HTML / cta_banner() to propagate changes.
 Usage: python3 gen_site.py
 """
 import os
+
+ASSET_VERSION = "20260818-6"
 import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -354,9 +356,9 @@ def page(title, description, active, body, extra_head="", favicon_emoji=None):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/legacy-main.css" />
-  <link rel="stylesheet" href="css/legacy-components.css" />
+  <link rel="stylesheet" href="css/variables.css?v={ASSET_VERSION}" />
+  <link rel="stylesheet" href="css/legacy-main.css?v={ASSET_VERSION}" />
+  <link rel="stylesheet" href="css/legacy-components.css?v={ASSET_VERSION}" />
 {extra_head}</head>
 <body>
 
@@ -372,10 +374,15 @@ def page(title, description, active, body, extra_head="", favicon_emoji=None):
 
 {EXIT_POPUP_HTML}
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v={ASSET_VERSION}"></script>
 </body>
 </html>
 """
+
+
+def component_css(name):
+    """Return a versioned stylesheet tag for an interior-page component."""
+    return f'  <link rel="stylesheet" href="components/{name}/{name}.css?v={ASSET_VERSION}" />\n'
 
 
 EXIT_POPUP_HTML = """  <div class="exit-popup-overlay" id="exitPopupOverlay">

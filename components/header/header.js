@@ -5,7 +5,7 @@
 
   if (!toggle || !nav) return;
 
-  var NAV_BREAKPOINT = 1125;
+  var NAV_BREAKPOINT = 1280;
 
   function closeNav() {
     nav.classList.remove("is-open");
