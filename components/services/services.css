@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Services grid ("What We Remodel & Build")
-   ========================================================================== */
-
+/* What We Remodel & Build */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -54,8 +51,8 @@
 .service-card__label {
   position: absolute;
   left: var(--space-md);
-  bottom: var(--space-md);
   right: var(--space-md);
+  bottom: var(--space-md);
   z-index: 1;
   color: var(--color-white);
   font-family: var(--font-heading);

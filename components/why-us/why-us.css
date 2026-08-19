@@ -1,97 +1,63 @@
-/* ==========================================================================
-   Why choose us — full-width photo with overlay + grid
-   ========================================================================== */
+/* Why choose us — warm editorial split layout. */
+.why-us-full { padding-block: var(--space-2xl); background: var(--color-warm-surface); }
 
-.why-us-full {
-  position: relative;
-  min-height: 640px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  color: var(--color-text-on-dark);
+.why-us-full .container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(var(--space-lg), 6vw, var(--space-2xl));
+  align-items: stretch;
 }
 
 .why-us-full__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.why-us-full__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.why-us-full__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 14, 22, 0.55) 0%, rgba(10, 14, 22, 0.8) 100%);
-}
-
-.why-us-full .container {
   position: relative;
-  z-index: 1;
+  min-height: 650px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
-.why-us-full__content {
-  padding-block: var(--space-2xl);
+.why-us-full__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(49, 44, 39, 0.18) 100%);
+  pointer-events: none;
 }
+
+.why-us-full__media img { width: 100%; height: 100%; object-fit: cover; }
+.why-us-full__content { display: flex; flex-direction: column; justify-content: center; padding-block: var(--space-lg); }
+.why-us-full__content .eyebrow { color: var(--color-warm-accent); }
+.why-us-full__content h2 { max-width: 12ch; margin-bottom: var(--space-sm); color: var(--color-warm-ink); }
+.why-us-full__intro { max-width: 48ch; margin-bottom: var(--space-xl); color: var(--color-text-muted); }
 
 .why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-  max-width: 980px;
-  margin-inline: auto;
+  margin: 0;
   padding: 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-warm-ink) 18%, transparent);
 }
 
 .why-grid__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xs);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 55%, rgba(43, 92, 214, 0.32) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  backdrop-filter: blur(3px);
-  transition: background var(--transition-base), transform var(--transition-base);
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--space-md);
+  align-items: center;
+  padding-block: var(--space-md);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-warm-ink) 18%, transparent);
+  transition: padding-left var(--transition-base), background var(--transition-base);
 }
 
-.why-grid__item:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.12) 55%, rgba(43, 92, 214, 0.42) 100%);
-  transform: translateY(-3px);
+.why-grid__item:hover { padding-left: var(--space-sm); background: color-mix(in srgb, var(--color-warm-surface-deep) 58%, transparent); }
+.why-grid__index { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--color-warm-accent); }
+.why-grid__text { color: var(--color-warm-ink); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .why-us-full .container { grid-template-columns: 1fr; }
+  .why-us-full__media { min-height: 480px; }
+  .why-us-full__content h2 { max-width: 18ch; }
 }
 
-.why-grid__index {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.why-grid__text {
-  color: var(--color-white);
-  font-weight: 600;
-}
-
-@media (max-width: 1024px) {
-  .why-us-full {
-    min-height: 560px;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .why-us-full {
-    min-height: 0;
-  }
-
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 600px) {
+  .why-us-full { padding-block: var(--space-xl); }
+  .why-us-full__media { min-height: 360px; }
+  .why-us-full__intro { margin-bottom: var(--space-lg); }
 }

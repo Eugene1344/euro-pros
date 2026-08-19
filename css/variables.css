@@ -42,6 +42,12 @@
   --color-star: #f4b400;
   --color-check: #16233f;
 
+  /* ---- Color: warm editorial surfaces ---- */
+  --color-warm-surface: #f3eee5;
+  --color-warm-surface-deep: #e7ddcf;
+  --color-warm-accent: #a46f4f;
+  --color-warm-ink: #312c27;
+
   /* Faint decorative tint for the background grid pattern and glows
      used to add texture to otherwise-plain sections. */
   --decor-tint: rgba(22, 35, 63, 0.05);
@@ -110,4 +116,8 @@
   --color-text-soft: #8b93a3;
   --decor-tint: rgba(255, 255, 255, 0.045);
   --decor-tint-strong: rgba(255, 255, 255, 0.08);
+  --color-warm-surface: #211e1b;
+  --color-warm-surface-deep: #2c2722;
+  --color-warm-accent: #c18a68;
+  --color-warm-ink: #f1ece5;
 }

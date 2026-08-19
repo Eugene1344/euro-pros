@@ -18,7 +18,7 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 COMPONENTS_DIR = os.path.join(ROOT, "components")
-ASSET_VERSION = "20260818-4"
+ASSET_VERSION = "20260818-6"
 
 # Components rendered inside <header>/<main>/<footer> wrappers, in order.
 HEADER_COMPONENTS = ["header"]

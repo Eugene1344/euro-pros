@@ -1,110 +1,48 @@
-/* ==========================================================================
-   Built on Real Construction Experience (full-bleed photo)
-   ========================================================================== */
-
-.checklist {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.checklist li {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-weight: 600;
-  color: var(--color-navy-800);
-}
-
-.checklist li svg {
-  flex: none;
-}
+/* Built on Real Construction Experience — full photo with warm content card. */
+.checklist { display: flex; flex-direction: column; gap: var(--space-sm); }
+.checklist li { display: flex; align-items: center; gap: var(--space-sm); font-weight: 600; color: var(--color-warm-ink); }
+.checklist li svg { flex: none; color: var(--color-warm-accent); }
 
 .experience-full {
   position: relative;
-  min-height: 75dvh;
-  min-height: 75vh;
+  min-height: 760px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  color: var(--color-text-on-dark);
+  background: var(--color-warm-surface-deep);
 }
 
-.experience-full__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.experience-full__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.experience-full__overlay {
-  position: absolute;
-  inset: 0;
-  background: none;
-}
-
-.experience-full .container {
-  position: relative;
-  z-index: 1;
-}
+.experience-full__media { position: absolute; inset: 0; }
+.experience-full__media img { width: 100%; height: 100%; object-fit: cover; }
+.experience-full__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(34, 29, 25, 0.08) 40%, rgba(34, 29, 25, 0.32) 100%); }
+.experience-full .container { position: relative; z-index: 1; display: flex; justify-content: flex-end; }
 
 .experience-full__content {
-  position: relative;
-  max-width: 620px;
-  padding-block: var(--space-2xl);
+  width: min(560px, 100%);
+  margin-block: var(--space-2xl);
+  padding: clamp(var(--space-lg), 5vw, var(--space-xl));
+  border: 1px solid color-mix(in srgb, var(--color-warm-ink) 12%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-warm-surface) 94%, transparent);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
 }
 
-/* The photo behind this section can be light, so instead of a full-bleed
-   color wash, drop a soft dark vignette immediately behind the text only,
-   keeping the rest of the photo clean. */
-.experience-full__content::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 145%;
-  height: 165%;
-  background: radial-gradient(ellipse at center, rgba(10, 14, 22, 0.78) 0%, rgba(10, 14, 22, 0.45) 45%, transparent 75%);
-  z-index: -1;
-  pointer-events: none;
+.experience-full__content .eyebrow { color: var(--color-warm-accent); }
+.experience-full__title { max-width: 11ch; margin-bottom: var(--space-sm); color: var(--color-warm-ink); }
+.experience-full__text { max-width: 44ch; margin-bottom: var(--space-lg); color: var(--color-text-muted); }
+.experience-full .checklist li svg circle { fill: var(--color-warm-accent); }
+.experience-full .checklist li svg path { stroke: var(--color-white); }
+
+@media (max-width: 900px) {
+  .experience-full { min-height: 680px; align-items: flex-end; }
+  .experience-full__overlay { background: linear-gradient(180deg, transparent 28%, rgba(34, 29, 25, 0.3) 100%); }
+  .experience-full .container { justify-content: center; }
+  .experience-full__content { margin-block: var(--space-xl); }
 }
 
-.experience-full__title {
-  color: var(--color-white);
-  margin-bottom: var(--space-sm);
-}
-
-.experience-full__text {
-  color: var(--color-text-on-dark-muted);
-  margin-bottom: var(--space-lg);
-  max-width: 46ch;
-}
-
-.experience-full .checklist li {
-  color: var(--color-white);
-}
-
-.experience-full .checklist li svg circle {
-  fill: var(--color-white);
-}
-
-.experience-full .checklist li svg path {
-  stroke: var(--color-navy-800);
-}
-
-@media (max-width: 1024px) {
-  .experience-full {
-    min-height: 480px;
-  }
-
-  .experience-full__content::before {
-    width: 160%;
-    height: 180%;
-  }
+@media (max-width: 600px) {
+  .experience-full { min-height: 720px; }
+  .experience-full__media img { object-position: 42% center; }
+  .experience-full__content { margin-block: var(--space-lg); }
 }
