@@ -1898,7 +1898,7 @@ contact_body = f"""  <section class="hero hero--sm">
           </div>
         </div>
 
-        <div>
+        <div class="contact-sidebar">
           <div class="contact-info-card">
             <h3>Contact Information</h3>
             <div class="contact-info-card__item">

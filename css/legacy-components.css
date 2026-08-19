@@ -370,18 +370,20 @@
 
 .process-row__index {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--color-navy-800);
   margin-bottom: var(--space-2xs);
 }
 
 .process-row__title {
+  font-size: var(--fs-h2);
   margin-bottom: var(--space-sm);
 }
 
 .process-row__text {
   color: var(--color-text-muted);
+  font-size: 1.1rem;
 }
 
 @media (max-width: 780px) {
@@ -533,8 +535,9 @@
   display: flex;
   gap: var(--space-sm);
   align-items: flex-start;
-  background: var(--color-bg-soft);
-  border: 1px solid var(--color-border);
+  background: rgba(37, 99, 235, 0.07);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-left: 3px solid #2563eb;
   border-radius: var(--radius-md);
   padding: var(--space-md);
   color: var(--color-text-muted);
@@ -545,7 +548,24 @@
   flex: none;
   width: 20px;
   height: 20px;
-  color: var(--color-navy-800);
+  color: #2563eb;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .note-box__icon {
+    animation: note-box-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes note-box-pulse {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0 rgba(37, 99, 235, 0));
+    }
+    50% {
+      transform: scale(1.18);
+      filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.55));
+    }
+  }
 }
 
 .pull-quote {
@@ -576,7 +596,8 @@
 }
 
 .toc {
-  border: 1px solid var(--color-border);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.25);
   border-radius: var(--radius-md);
   padding: var(--space-md);
 }
@@ -586,19 +607,23 @@
   font-weight: 700;
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
-  color: var(--color-text-soft);
+  color: #2563eb;
   margin-bottom: var(--space-sm);
 }
 
 .toc a {
   display: block;
   padding-block: 6px;
+  padding-left: var(--space-sm);
+  border-left: 2px solid transparent;
   font-size: var(--fs-small);
   color: var(--color-text);
+  transition: color var(--transition-base), border-color var(--transition-base);
 }
 
 .toc a:hover {
-  color: var(--color-navy-800);
+  color: #2563eb;
+  border-left-color: #2563eb;
 }
 
 .article-body h2 {
@@ -1462,11 +1487,22 @@
   margin-bottom: var(--space-md);
 }
 
+.contact-sidebar {
+  position: sticky;
+  top: 96px;
+}
+
 .contact-info-card,
 .next-steps-card {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
+}
+
+.contact-info-card {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: var(--color-text-on-dark);
 }
 
 .contact-info-card + .next-steps-card {
@@ -1475,12 +1511,13 @@
 
 .contact-info-card h3 {
   font-size: var(--fs-body);
+  color: var(--color-white);
   margin-bottom: var(--space-2xs);
 }
 
 .contact-info-card hr.divider {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-dark);
   margin: var(--space-md) 0;
 }
 
@@ -1521,7 +1558,7 @@
   gap: var(--space-sm);
   align-items: flex-start;
   padding-block: var(--space-sm);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-dark);
 }
 
 .contact-info-card__item:last-child {
@@ -1533,8 +1570,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-brand);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-brand);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1547,12 +1584,12 @@
 
 .contact-info-card__title {
   font-weight: 700;
-  color: var(--color-navy-800);
+  color: var(--color-white);
 }
 
 .contact-info-card__text {
   font-size: var(--fs-small);
-  color: var(--color-text-muted);
+  color: var(--color-text-on-dark-muted);
 }
 
 .step-list {
@@ -1589,6 +1626,19 @@
 .step-list__text {
   color: var(--color-text-muted);
   font-size: var(--fs-small);
+}
+
+.contact-info-card .step-list__circle {
+  background: var(--color-white);
+  color: var(--color-brand);
+}
+
+.contact-info-card .step-list__title {
+  color: var(--color-white);
+}
+
+.contact-info-card .step-list__text {
+  color: var(--color-text-on-dark-muted);
 }
 
 @media (max-width: 900px) {

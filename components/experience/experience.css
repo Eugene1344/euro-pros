@@ -45,13 +45,7 @@
 .experience-full__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(133, 101, 48, 0.94) 0%,
-    rgba(133, 101, 48, 0.88) 30%,
-    rgba(133, 101, 48, 0.5) 58%,
-    rgba(133, 101, 48, 0.08) 85%
-  );
+  background: none;
 }
 
 .experience-full .container {
@@ -60,8 +54,25 @@
 }
 
 .experience-full__content {
+  position: relative;
   max-width: 620px;
   padding-block: var(--space-2xl);
+}
+
+/* The photo behind this section can be light, so instead of a full-bleed
+   color wash, drop a soft dark vignette immediately behind the text only,
+   keeping the rest of the photo clean. */
+.experience-full__content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 145%;
+  height: 165%;
+  background: radial-gradient(ellipse at center, rgba(10, 14, 22, 0.78) 0%, rgba(10, 14, 22, 0.45) 45%, transparent 75%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .experience-full__title {
@@ -92,12 +103,8 @@
     min-height: 480px;
   }
 
-  .experience-full__overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(133, 101, 48, 0.92) 0%,
-      rgba(133, 101, 48, 0.85) 55%,
-      rgba(133, 101, 48, 0.65) 100%
-    );
+  .experience-full__content::before {
+    width: 160%;
+    height: 180%;
   }
 }
