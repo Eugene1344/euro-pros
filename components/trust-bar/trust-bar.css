@@ -5,6 +5,11 @@
 .trust-bar {
   background: var(--color-bg-soft);
   border-bottom: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-gold);
+}
+
+.trust-bar__num {
+  color: var(--color-gold-dark);
 }
 
 .trust-bar .container {

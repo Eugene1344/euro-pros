@@ -50,7 +50,7 @@
 }
 
 .hero__eyebrow {
-  color: var(--color-text-on-dark-muted);
+  color: var(--color-gold);
 }
 
 .hero__title {
@@ -67,12 +67,35 @@
   color: var(--color-text-on-dark-muted);
   max-width: 42ch;
   margin-bottom: var(--space-lg);
+  padding-left: var(--space-sm);
+  border-left: 3px solid var(--color-gold);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
+}
+
+.hero__cta {
+  background: var(--color-gold);
+  color: var(--color-brand);
+  border-color: var(--color-gold);
+}
+
+.hero__cta span {
+  font-size: 1.15em;
+  transition: transform var(--transition-base);
+}
+
+.hero__cta:hover {
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+  color: var(--color-white);
+}
+
+.hero__cta:hover span {
+  transform: translateX(4px);
 }
 
 @media (max-width: 1024px) {

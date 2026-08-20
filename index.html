@@ -30,29 +30,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/variables.css?v=20260818-6" />
-  <link rel="stylesheet" href="css/main.css?v=20260818-6" />
+  <link rel="stylesheet" href="css/variables.css?v=20260819-3" />
+  <link rel="stylesheet" href="css/main.css?v=20260819-3" />
   <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="components/header/header.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/hero/hero.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/trust-bar/trust-bar.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/services/services.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/why-us/why-us.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/value-props/value-props.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/work/work.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/stats-bar/stats-bar.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/process-preview/process-preview.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/process-steps/process-steps.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/reviews/reviews.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/experience/experience.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/construction-banner/construction-banner.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/pricing/pricing.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/advantages/advantages.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/faq/faq.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/service-area/service-area.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/final-cta/final-cta.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/footer/footer.css?v=20260818-6" />
-  <link rel="stylesheet" href="components/exit-popup/exit-popup.css?v=20260818-6" />
+  <link rel="stylesheet" href="components/header/header.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/hero/hero.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/trust-bar/trust-bar.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/services/services.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/why-us/why-us.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/value-props/value-props.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/work/work.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/stats-bar/stats-bar.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/process-preview/process-preview.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/process-steps/process-steps.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/reviews/reviews.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/experience/experience.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/pricing/pricing.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/construction-banner/construction-banner.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/advantages/advantages.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/faq/faq.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/service-area/service-area.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/final-cta/final-cta.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/footer/footer.css?v=20260819-3" />
+  <link rel="stylesheet" href="components/exit-popup/exit-popup.css?v=20260819-3" />
 
   <script type="application/ld+json">
   {
@@ -154,7 +154,7 @@
         <h1 class="hero__title hero__title--h2">Licensed General Contractor for Remodeling &amp; New Home Construction</h1>
         <p class="hero__subtitle">Bathroom &middot; Basement &middot; Kitchen &middot; Whole-Home Remodeling &middot; New Construction</p>
         <div class="hero__actions">
-          <a class="btn btn--white" href="contact.html">Get an Estimate</a>
+          <a class="btn hero__cta" href="contact.html">Get an Estimate <span aria-hidden="true">&rarr;</span></a>
           <a class="btn btn--outline-light" href="our-work.html">View Our Work</a>
         </div>
       </div>
@@ -349,10 +349,11 @@
     </div>
   </section>
 
-  <section class="section section--soft process-steps-section" aria-labelledby="process-steps-heading">
+  <section class="section process-steps-section process-steps-section--home" aria-labelledby="process-steps-heading">
     <div class="container">
       <div class="section-head">
-        <h2 id="process-steps-heading">Our Process</h2>
+        <span class="eyebrow eyebrow--on-dark">Our Remodeling Process</span>
+        <h2 id="process-steps-heading">A Simple Process. A Beautiful Result.</h2>
       </div>
 
       <ol class="process-steps">
@@ -562,28 +563,6 @@
     </div>
   </section>
 
-  <section class="construction-banner section--navy" aria-labelledby="construction-banner-heading">
-    <div class="container">
-      <div class="construction-banner__content">
-        <h2 class="construction-banner__title" id="construction-banner-heading">Building a New Home?</h2>
-        <p class="construction-banner__text">From concept to completion, we handle every step.</p>
-        <ul class="build-steps">
-          <li>Plans</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Permits</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Site Work</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Foundation</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Framing</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Mechanical</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Interior</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
-          <li>Final Completion</li>
-        </ul>
-      </div>
-      <div class="construction-banner__media" aria-hidden="true">
-        <img src="images/blueprint-house.png" alt="" />
-      </div>
-    </div>
-  </section>
-
   <section class="section" aria-labelledby="pricing-heading">
     <h2 class="visually-hidden" id="pricing-heading">Pricing</h2>
     <div class="container">
@@ -604,6 +583,28 @@
         </div>
       </div>
       <p class="pricing-note">Starting prices vary depending on project size, existing conditions, layout, materials and scope of work.</p>
+    </div>
+  </section>
+
+  <section class="construction-banner section--navy" aria-labelledby="construction-banner-heading">
+    <div class="container">
+      <div class="construction-banner__content">
+        <h2 class="construction-banner__title" id="construction-banner-heading">Building a New Home?</h2>
+        <p class="construction-banner__text">From concept to completion, we handle every step.</p>
+        <ul class="build-steps">
+          <li>Plans</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Permits</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Site Work</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Foundation</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Framing</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Mechanical</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Interior</li><li class="is-sep" aria-hidden="true">&rsaquo;</li>
+          <li>Final Completion</li>
+        </ul>
+      </div>
+      <div class="construction-banner__media" aria-hidden="true">
+        <img src="images/blueprint-house.png" alt="" />
+      </div>
     </div>
   </section>
 
@@ -822,10 +823,10 @@
   </div>
 
   <script src="vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="components/header/header.js?v=20260818-6"></script>
-  <script src="components/trust-bar/trust-bar.js?v=20260818-6"></script>
-  <script src="components/reviews/reviews.js?v=20260818-6"></script>
-  <script src="components/faq/faq.js?v=20260818-6"></script>
-  <script src="components/exit-popup/exit-popup.js?v=20260818-6"></script>
+  <script src="components/header/header.js?v=20260819-3"></script>
+  <script src="components/trust-bar/trust-bar.js?v=20260819-3"></script>
+  <script src="components/reviews/reviews.js?v=20260819-3"></script>
+  <script src="components/faq/faq.js?v=20260819-3"></script>
+  <script src="components/exit-popup/exit-popup.js?v=20260819-3"></script>
 </body>
 </html>
